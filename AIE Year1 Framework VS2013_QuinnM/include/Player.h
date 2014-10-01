@@ -11,6 +11,8 @@ public:
 	void Update(float in_deltaTime);
 	void Draw();
 
+	Player& operator=(Player other);
+
 	void Collide();
 	void Move(float in_deltaTime);
 
