@@ -1,4 +1,6 @@
 #include <vector>
+#include "Entity.h"
+#include "Player.h"
 
 #ifndef _Game_h_
 #define _Game_h_
@@ -18,6 +20,7 @@ private:
 
 	//std::vector<Entity> entities;
 	//EnemyScript curentScript;
+	Player player;
 	unsigned int playerPoints;
 	unsigned int playerLives;
 	bool gamePlaying;

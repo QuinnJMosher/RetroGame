@@ -1,33 +1,46 @@
 #include "game.h"
 #include "AIE.h"
+#include <vector>
+#include "Entity.h"
+#include "Player.h"
 
 Game::Game() {
 	this->playerPoints = 0;
 	this->playerLives = 1;
-	//construct entities
+	//entities = std::vector<Entity>();
 	//construct curentScript
+	player = Player();
 }
 
 Game::~Game() {
-	//destroy entities
+	//entities.~vector();
+	player.~Player();
 	//destroy curentScript
 }
 
 void Game::Update(float in_deltaTime) {
 	//loop through vector
-	//call colide?
+	/*for (int i = 0; i < entities.size(); i++) {
+		entities[i].Update(in_deltaTime);
+	}*/
+	player.Update(in_deltaTime);
 	//scores & stuff?
 }
 
 void Game::Draw() {
+	//draw background
 	// debug visuals
 	DrawString("I'm here", 100, 100);
 	//loop through vector
-	//draw background
+	/*for (int i = 0; i < entities.size(); i++) {
+		entities[i].Draw();
+	}*/
+	player.Draw();
 }
 
 int Game::Initalize() {
 	//create player in vector, ect
+	//entities.emplace_back(Player());
 	return 0;
 }
 
