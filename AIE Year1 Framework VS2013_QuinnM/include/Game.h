@@ -12,13 +12,15 @@ public:
 
 	void Start();
 
+	std::vector<Entity*> entities;
+
 private:
 	void Update(float in_deltaTime);
 	void Draw();
 	int Initalize();
 	int LoadContent();
 
-	std::vector<Entity*> entities;
+	
 	//EnemyScript curentScript;
 	bool gamePlaying;
 };

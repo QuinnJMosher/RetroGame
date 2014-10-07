@@ -33,5 +33,15 @@ Entity::~Entity() {
 }
 
 bool Entity::hasColidedWith(Entity &other) {
+	float difX = this->position.x - other.position.x;
+	float difY = this->position.y - other.position.y;
+	if (difX < 0) {
+		difX *= -1;
+	}
+	if (difY < 0) {
+		difY *= -1;
+	}
+	float rad = (this->width / 2) + (other.width / 2);
 
+	return ((difX * difX) + (difY * difY) <= (rad * rad));
 }

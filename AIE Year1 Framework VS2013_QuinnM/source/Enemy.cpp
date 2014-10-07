@@ -1,6 +1,7 @@
 #include "Enemy.h"
 #include "GlobalInfo.h"
 #include "Player.h"
+#include "Bullet.h"
 #include "AIE.h"
 
 //Enemy constants
@@ -58,7 +59,7 @@ bool Enemy::TakeDamage(unsigned int in_dammage) {
 void Enemy::Collide(Entity &other) {//override
 	//we already know we hit somthing if this is called
 	Player *playerPtr = NULL;
-	//Bullet *bulletPtr = NULL;
+	Bullet *bulletPtr = NULL;
 	switch (other.type) {
 
 	case 'P'://player
@@ -72,15 +73,15 @@ void Enemy::Collide(Entity &other) {//override
 	case 'B'://bullet
 
 		if (this->OwnerId != other.OwnerId) {
-			/*bulletPtr = dynamic_cast<Bullet*>(&other);
+			bulletPtr = dynamic_cast<Bullet*>(&other);
+
 			if (bulletPtr != NULL) {
+				if (!(*bulletPtr).CheckHasHit()) {
+					this->TakeDamage((*bulletPtr).damageValue);
+					(*bulletPtr).Hit();
+				}
 
-			if (!bulletPtr.CheckHasHit()) {
-			this->takeDammage(bulletPtr.Dammage)
-			(*bulletPtr).Hit();
 			}
-
-			}*/
 		}
 
 		break;

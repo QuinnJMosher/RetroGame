@@ -2,6 +2,7 @@
 #include "GlobalInfo.h"
 #include "AIE.h"
 #include "Enemy.h"
+#include "Bullet.h"
 #include <typeinfo> 
 
 const char* Player::PLAYER_TEXTURE_PATH = "./images/invaders/invaders_4_00.png";
@@ -94,14 +95,14 @@ void Player::Move(float in_deltaTime) {
 }
 
 void Player::Fire() {
-	//create a bullet
+	//(*GlobalInfo::currentGame).entities.emplace_back(new Bullet(position.x, position.y,0,300,bullletDammage, OwnerId));
 }
 
 void Player::Collide(Entity &other) {//override
 	//we already know we hit somthing if this is called
-	if (immunityTime > 0) {
+	if (immunityTime <= 0) {
 		Enemy *enemyPtr = NULL;
-		//Bullet *bulletPtr = NULL;
+		Bullet *bulletPtr = NULL;
 		switch (other.type) {
 
 		case 'P'://player
@@ -111,7 +112,6 @@ void Player::Collide(Entity &other) {//override
 		case 'E'://Enemy
 
 			this->TakeDamage(20);
-			this->immunityTime += IMUNITY_INTERVAL;
 
 			enemyPtr = dynamic_cast<Enemy*>(&other);
 			if (enemyPtr != NULL) {
@@ -121,18 +121,17 @@ void Player::Collide(Entity &other) {//override
 			break;
 
 		case 'B'://bullet
-			this->immunityTime += IMUNITY_INTERVAL;
 
 			if (this->OwnerId != other.OwnerId) {
-				/*bulletPtr = dynamic_cast<Bullet*>(&other);
-				if (bulletPtr != NULL) {
+					bulletPtr = dynamic_cast<Bullet*>(&other);
 
-					if (!bulletPtr.CheckHasHit()) {
-						this->takeDammage(bulletPtr.Dammage)
-						(*bulletPtr).Hit();
+					if (bulletPtr != NULL) {
+						if (!(*bulletPtr).CheckHasHit()) {
+							this->TakeDamage((*bulletPtr).damageValue);
+							(*bulletPtr).Hit();
+						}
+
 					}
-
-				}*/
 			}
 
 			break;
@@ -153,7 +152,8 @@ bool Player::IsAlive() {//Override
 	return false;
 }
 
-bool Player::TakeDammage(unsigned int in_dammage) {
+bool Player::TakeDamage(unsigned int in_dammage) {
+	immunityTime += IMUNITY_INTERVAL;
 	maxHitPoints -= in_dammage;
 	return IsAlive();
 }

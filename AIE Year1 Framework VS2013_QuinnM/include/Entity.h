@@ -18,15 +18,15 @@ public:
 	virtual bool IsAlive() = 0;
 	virtual void Collide(Entity &other) = 0;
 
-	Point position;
-	float width;
-	float height;
-
 	char type;
 	int OwnerId;
 
 protected:
 	unsigned int spriteID;
+
+	Point position;
+	float width;
+	float height;
 	
 private:
 	static int nextOwnerId;
