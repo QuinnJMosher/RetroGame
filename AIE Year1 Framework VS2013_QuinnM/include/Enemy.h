@@ -1,0 +1,38 @@
+#include "Entity.h"
+
+#ifndef _Enemy_h_
+#define _Enemy_h_
+
+class Enemy : public Entity{
+public:
+	Enemy(float in_x, float in_y);
+	~Enemy();
+
+	void Update(float in_deltaTime);
+	void Draw();
+
+	void Move(float in_deltaTime);
+
+	bool IsAlive();
+	bool TakeDamage(unsigned int in_dammage); //returns false if dead
+
+private:
+
+	//forced movement vars
+	float xVelocity;
+	float yVelocity;
+	//actual speed
+	float xSpeed;
+	float ySpeed;
+
+	//stats
+	unsigned int hitPoints;
+	unsigned int pointValue;
+
+	//Enemy constants
+	static const char* ENEMY_TEXTURE_PATH;
+	static const float ENEMY_WIDTH;
+	static const float ENEMY_HEIGHT;
+};
+
+#endif

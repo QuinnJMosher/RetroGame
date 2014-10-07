@@ -18,11 +18,8 @@ private:
 	int Initalize();
 	int LoadContent();
 
-	//std::vector<Entity> entities;
+	std::vector<Entity*> entities;
 	//EnemyScript curentScript;
-	Player player;
-	unsigned int playerPoints;
-	unsigned int playerLives;
 	bool gamePlaying;
 };
 

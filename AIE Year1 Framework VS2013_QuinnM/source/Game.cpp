@@ -1,50 +1,55 @@
 #include "game.h"
+#include "GlobalInfo.h"
 #include "AIE.h"
 #include <vector>
 #include "Entity.h"
 #include "Player.h"
+#include "Enemy.h"
 
 Game::Game() {
-	this->playerPoints = 0;
-	this->playerLives = 1;
-	//entities = std::vector<Entity>();
+	entities = std::vector<Entity*>();
 	//construct curentScript
-	player = Player();
 }
 
 Game::~Game() {
-	//entities.~vector();
-	player.~Player();
+	entities.~vector();
 	//destroy curentScript
 }
 
 void Game::Update(float in_deltaTime) {
 	//loop through vector
-	/*for (int i = 0; i < entities.size(); i++) {
-		entities[i].Update(in_deltaTime);
-	}*/
-	player.Update(in_deltaTime);
+	for (int i = 0; i < entities.size(); i++) {
+		(*entities[i]).Update(in_deltaTime);
+		//colide
+		if (!(*entities[i]).IsAlive()) {
+			entities.erase(entities.begin() + i);
+			i--;
+		}
+	}
 	//scores & stuff?
 }
 
 void Game::Draw() {
 	//draw background
-	// debug visuals
-	DrawString("I'm here", 100, 100);
 	//loop through vector
-	/*for (int i = 0; i < entities.size(); i++) {
-		entities[i].Draw();
-	}*/
-	player.Draw();
+	for (int i = 0; i < entities.size(); i++) {
+		(*entities[i]).Draw();
+	}
 }
 
-int Game::Initalize() {
+int Game::Initalize() {//called before loadcontent
 	//create player in vector, ect
-	//entities.emplace_back(Player());
+	GlobalInfo::playerPoints = 0;
+	GlobalInfo::playerLives = 3;
+
+	entities.emplace_back(new Player());
+	entities.emplace_back(new Enemy(GlobalInfo::SCREEN_MAX_X * 0.33, GlobalInfo::SCREEN_MAX_Y));
+	entities.emplace_back(new Enemy(GlobalInfo::SCREEN_MAX_X * 0.66, GlobalInfo::SCREEN_MAX_Y - 50));
+	entities.emplace_back(new Enemy(GlobalInfo::SCREEN_MAX_X * 1, GlobalInfo::SCREEN_MAX_Y - 100));
 	return 0;
 }
 
-int Game::LoadContent() {
+int Game::LoadContent() {//called before start
 	//open enemyscript, create sprites
 	return 0;
 }

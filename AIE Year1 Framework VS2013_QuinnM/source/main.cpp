@@ -1,12 +1,10 @@
 ﻿#include "AIE.h"
 #include <iostream>
 #include "Game.h"
+#include "GlobalInfo.h"
 
 //prototypes
 void closeAll();
-
-//constant vars
-static int SCREEN_MAX_X = 900, SCREEN_MAX_Y = 600;
 
 enum GameState {
 	MAIN_MENU,
@@ -16,9 +14,9 @@ enum GameState {
 
 int main( int argc, char* argv[] )
 {	
-	Initialise(SCREEN_MAX_X, SCREEN_MAX_Y, false, "Retro Game");
+	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, "Retro Game");
     
-    SetBackgroundColour(SColour(0, 0, 0, 255));
+    SetBackgroundColour(SColour(0, 100, 255, 255));
 
 	bool continuePlay = true;
 	GameState currentState = MAIN_MENU;
@@ -72,4 +70,5 @@ int main( int argc, char* argv[] )
 
 void closeAll() {
 	//destroy evrything
+	//EVRYTHING!!!
 }

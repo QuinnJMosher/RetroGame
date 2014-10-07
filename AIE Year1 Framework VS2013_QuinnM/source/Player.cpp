@@ -1,7 +1,16 @@
 #include "Player.h"
+#include "GlobalInfo.h"
 #include "AIE.h"
+#include "Enemy.h"
+#include <typeinfo> 
 
-Player::Player() : Entity(PLAYER_START_X,PLAYER_START_Y, PLAYER_WIDTH, PLAYER_HEIGHT, TEXTURE_PATH) {
+const char* Player::PLAYER_TEXTURE_PATH = "./images/invaders/invaders_4_00.png";
+const float Player::PLAYER_WIDTH = 40.f;
+const float Player::PLAYER_HEIGHT = 40.f;
+const float Player::PLAYER_START_X = GlobalInfo::SCREEN_MAX_X / 2;
+const float Player::PLAYER_START_Y = GlobalInfo::SCREEN_MAX_Y * 0.1;
+
+Player::Player() : Entity(PLAYER_START_X,PLAYER_START_Y, PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_TEXTURE_PATH, 'P') {
 	this->inputKeyUp = 'W';
 	this->inputKeyDown = 'S';
 	this->inputKeyLeft = 'A';
@@ -33,15 +42,12 @@ void Player::Update(float in_deltaTime)  {//override
 	if (immunityTime > 0) {//immunity time will prevent the player from being killed almost instantly from a single player
 		immunityTime -= in_deltaTime;
 	}
-	else {
-		Collide();
-	}
 
 	if (firePauseTime > 0) {//prevent player from fireing a constant stream of bullets
 		firePauseTime -= in_deltaTime;
 	} else {
 		if (IsKeyDown(inputKeyFire)) {
-			//add a bullet to the entity list in front of player (create an emitter point?)
+			Fire();//add a bullet to the entity list in front of player (create an emitter point?)
 			firePauseTime = FIRE_INTERVAL;
 		}
 	}
@@ -71,27 +77,48 @@ void Player::Move(float in_deltaTime) {
 	if (position.x < 0 + (width / 2)) {
 		position.x = width / 2;
 	}
-	else if (position.x > 900/*screen max width*/ - (width / 2)) {
-		position.x = 900/*screen max width*/ - (width / 2);
+	else if (position.x > GlobalInfo::SCREEN_MAX_X - (width / 2)) {
+		position.x = GlobalInfo::SCREEN_MAX_X - (width / 2);
 	}
 
 	if (position.y < 0 + (height / 2)) {
 		position.y = height / 2;
 	}
-	else if (position.y > 600/*screen max height*/ - (height / 2)) {
-		position.y = 600/*screen max height*/ - (height / 2);
+	else if (position.y > GlobalInfo::SCREEN_MAX_Y - (height / 2)) {
+		position.y = GlobalInfo::SCREEN_MAX_Y - (height / 2);
 	}
 
 	//end movement
 	MoveSprite(spriteID, position.x, position.y);
 }
 
-void Player::Collide() {
+void Player::Fire() {
+	//create a bullet
+}
+
+void Player::Collide(Entity &other) {
 	//collide stuff here (implement in Entity? <-nope!)
-	if (/*colided with a stuff*/ false) {
-		this->TakeDammage(/*make a const somewhere containing colide dammage*/20);
-		//dammage only happens per frame but immunity is by time
-		//^if framerate is low then dammage could be taken evry other frame
+	if (immunityTime > 0) {
+		const char* otherType = typeid(other).name();
+		if (otherType = "Player") {
+			//ignore it
+		} else if (otherType = "Enemy") {
+			this->TakeDammage(20);
+
+			Enemy *enemyPtr = dynamic_cast<Enemy*>(&other);
+			if (enemyPtr != NULL) {
+				(*enemyPtr).TakeDamage(20);
+			}
+
+		} else if (otherType = "bullet") {
+
+			/*Bullet *bulletPtr = dynamic_cast<Bullet*>(&other);
+			if (bulletPtr != NULL) {
+				this->takeDammage(bulletPtr.Dammage)
+				(*bulletPtr).Hit();
+			}*/
+
+		}
 	}
 }
 
@@ -99,7 +126,7 @@ void Player::Draw() {//Override
 	DrawSprite(spriteID);
 }
 
-bool Player::IsAlive() {
+bool Player::IsAlive() {//Override
 	if (hitPoints > 0) {
 		return true;
 	}

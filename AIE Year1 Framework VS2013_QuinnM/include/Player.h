@@ -13,8 +13,9 @@ public:
 
 	Player& operator=(Player other);
 
-	void Collide();
+	void Collide(Entity &other);
 	void Move(float in_deltaTime);
+	void Fire();
 
 	bool IsAlive();
 	bool TakeDammage(unsigned int in_dammage); //returns false if dead
@@ -51,11 +52,11 @@ private:
 	const float FIRE_INTERVAL = 0.25f;
 
 	//player constants
-	const char* TEXTURE_PATH = "./images/invaders/invaders_4_00.png";
-	const float PLAYER_WIDTH = 30.f;
-	const float PLAYER_HEIGHT = 10.f;
-	const float PLAYER_START_X = 500.f;
-	const float PLAYER_START_Y = 500.f;
+	static const char* PLAYER_TEXTURE_PATH;
+	static const float PLAYER_WIDTH;
+	static const float PLAYER_HEIGHT;
+	static const float PLAYER_START_X;
+	static const float PLAYER_START_Y;
 };
 
 #endif
