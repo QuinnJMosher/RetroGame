@@ -1,13 +1,15 @@
 #include "Enemy.h"
 #include "GlobalInfo.h"
+#include "Player.h"
 #include "AIE.h"
 
 //Enemy constants
 const char* Enemy::ENEMY_TEXTURE_PATH = "./images/invaders/invaders_1_00.png";
 const float Enemy::ENEMY_WIDTH = 40;
 const float Enemy::ENEMY_HEIGHT = 40;
+const char Enemy::ENEMY_TYPE_TAG = 'E';
 
-Enemy::Enemy(float in_x, float in_y) : Entity(in_x, in_y, ENEMY_WIDTH, ENEMY_HEIGHT, ENEMY_TEXTURE_PATH, 'E') {
+Enemy::Enemy(float in_x, float in_y) : Entity(in_x, in_y, ENEMY_WIDTH, ENEMY_HEIGHT, ENEMY_TEXTURE_PATH, ENEMY_TYPE_TAG) {
 	this->xVelocity = 0;
 	this->yVelocity = 0;
 	this->xSpeed = 0;
@@ -38,7 +40,8 @@ bool Enemy::IsAlive() {//override
 	if (hitPoints <= 0) {
 		GlobalInfo::playerPoints += pointValue;
 		return false;
-	} else if (position.y < 0 - width) {
+	}
+	else if (position.y < 0 - width) {
 		return false;
 	}
 	return true;
@@ -50,4 +53,39 @@ bool Enemy::TakeDamage(unsigned int in_dammage) {
 		return false;
 	}
 	return true;
+}
+
+void Enemy::Collide(Entity &other) {//override
+	//we already know we hit somthing if this is called
+	Player *playerPtr = NULL;
+	//Bullet *bulletPtr = NULL;
+	switch (other.type) {
+
+	case 'P'://player
+		//ignore it (prevents taking double damage) 
+		break;
+
+	case 'E'://Enemy
+		//ignore it
+		break;
+
+	case 'B'://bullet
+
+		if (this->OwnerId != other.OwnerId) {
+			/*bulletPtr = dynamic_cast<Bullet*>(&other);
+			if (bulletPtr != NULL) {
+
+			if (!bulletPtr.CheckHasHit()) {
+			this->takeDammage(bulletPtr.Dammage)
+			(*bulletPtr).Hit();
+			}
+
+			}*/
+		}
+
+		break;
+	default:
+		break;
+	}
+
 }

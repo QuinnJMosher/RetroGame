@@ -8,21 +8,23 @@ public:
 	Player();
 	~Player();
 
+	//standard method calls
 	void Update(float in_deltaTime);
 	void Draw();
 
+	//assignment operator
 	Player& operator=(Player other);
 
-	void Collide(Entity &other);
-	void Move(float in_deltaTime);
-	void Fire();
+	void Collide(Entity &other);//preform actions to things that have been colided with (called ON conlide)
+	void Move(float in_deltaTime);//preform the movement portion of update
+	void Fire();//create a bullet
 
-	bool IsAlive();
-	bool TakeDammage(unsigned int in_dammage); //returns false if dead
-	void RestoreHealth(unsigned int in_healing);
-	int GetHitPoints();
-	void ChangeVelocity(float in_xVelocity, float in_yVelocity);
-	void ChangeSpeed(float in_xSpeed, float in_ySpeed);
+	bool IsAlive();//check if object should still be updating
+	bool TakeDamage(unsigned int in_dammage); //reduce hitPoints (returns false if dead)
+	void RestoreHealth(unsigned int in_healing);//increase hitPoints
+	int GetHitPoints();//gettre for hitPoints
+	void ChangeVelocity(float in_xVelocity, float in_yVelocity);//change the forced movement values
+	void ChangeSpeed(float in_xSpeed, float in_ySpeed);//change the speed of player-inputed movement
 
 private:
 	//input key vars
@@ -57,6 +59,7 @@ private:
 	static const float PLAYER_HEIGHT;
 	static const float PLAYER_START_X;
 	static const float PLAYER_START_Y;
+	static const char PLAYER_TYPE_TAG;
 };
 
 #endif

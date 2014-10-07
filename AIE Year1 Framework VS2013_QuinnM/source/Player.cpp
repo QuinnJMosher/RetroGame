@@ -9,8 +9,9 @@ const float Player::PLAYER_WIDTH = 40.f;
 const float Player::PLAYER_HEIGHT = 40.f;
 const float Player::PLAYER_START_X = GlobalInfo::SCREEN_MAX_X / 2;
 const float Player::PLAYER_START_Y = GlobalInfo::SCREEN_MAX_Y * 0.1;
+const char Player::PLAYER_TYPE_TAG = 'P';
 
-Player::Player() : Entity(PLAYER_START_X,PLAYER_START_Y, PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_TEXTURE_PATH, 'P') {
+Player::Player() : Entity(PLAYER_START_X, PLAYER_START_Y, PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_TEXTURE_PATH, PLAYER_TYPE_TAG) {
 	this->inputKeyUp = 'W';
 	this->inputKeyDown = 'S';
 	this->inputKeyLeft = 'A';
@@ -96,28 +97,47 @@ void Player::Fire() {
 	//create a bullet
 }
 
-void Player::Collide(Entity &other) {
-	//collide stuff here (implement in Entity? <-nope!)
+void Player::Collide(Entity &other) {//override
+	//we already know we hit somthing if this is called
 	if (immunityTime > 0) {
-		const char* otherType = typeid(other).name();
-		if (otherType = "Player") {
-			//ignore it
-		} else if (otherType = "Enemy") {
-			this->TakeDammage(20);
+		Enemy *enemyPtr = NULL;
+		//Bullet *bulletPtr = NULL;
+		switch (other.type) {
 
-			Enemy *enemyPtr = dynamic_cast<Enemy*>(&other);
+		case 'P'://player
+			//ignore it
+			break;
+
+		case 'E'://Enemy
+
+			this->TakeDamage(20);
+			this->immunityTime += IMUNITY_INTERVAL;
+
+			enemyPtr = dynamic_cast<Enemy*>(&other);
 			if (enemyPtr != NULL) {
 				(*enemyPtr).TakeDamage(20);
 			}
 
-		} else if (otherType = "bullet") {
+			break;
 
-			/*Bullet *bulletPtr = dynamic_cast<Bullet*>(&other);
-			if (bulletPtr != NULL) {
-				this->takeDammage(bulletPtr.Dammage)
-				(*bulletPtr).Hit();
-			}*/
+		case 'B'://bullet
+			this->immunityTime += IMUNITY_INTERVAL;
 
+			if (this->OwnerId != other.OwnerId) {
+				/*bulletPtr = dynamic_cast<Bullet*>(&other);
+				if (bulletPtr != NULL) {
+
+					if (!bulletPtr.CheckHasHit()) {
+						this->takeDammage(bulletPtr.Dammage)
+						(*bulletPtr).Hit();
+					}
+
+				}*/
+			}
+
+			break;
+		default:
+			break;
 		}
 	}
 }

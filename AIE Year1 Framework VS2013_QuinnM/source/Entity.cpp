@@ -31,3 +31,7 @@ void Entity::BuildSprite(const char* in_filePath) {
 Entity::~Entity() {
 	position.~Point();
 }
+
+bool Entity::hasColidedWith(Entity &other) {
+
+}

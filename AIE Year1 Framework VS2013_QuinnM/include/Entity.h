@@ -10,11 +10,13 @@ public:
 	Entity(float in_x, float in_y, float in_width, float in_height, const char* in_filePath, char in_type, int in_owner);
 
 	void BuildSprite(const char* in_filePath);
+	bool hasColidedWith(Entity &other);
 	virtual ~Entity();
 
 	virtual void Update(float in_deltaTime) = 0;
 	virtual void Draw() = 0;
 	virtual bool IsAlive() = 0;
+	virtual void Collide(Entity &other) = 0;
 
 	Point position;
 	float width;

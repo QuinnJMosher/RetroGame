@@ -19,11 +19,24 @@ Game::~Game() {
 void Game::Update(float in_deltaTime) {
 	//loop through vector
 	for (int i = 0; i < entities.size(); i++) {
-		(*entities[i]).Update(in_deltaTime);
-		//colide
-		if (!(*entities[i]).IsAlive()) {
-			entities.erase(entities.begin() + i);
-			i--;
+
+		(*entities[i]).Update(in_deltaTime);//call update
+
+		for (int j = i + 1; j < entities.size(); j++) {
+
+			if ((*entities[i]).hasColidedWith((*entities[j]))) {
+
+				(*entities[i]).Collide((*entities[j]));
+
+			}
+
+		}
+
+		if (!(*entities[i]).IsAlive()) {//check if it is still alive
+
+			entities.erase(entities.begin() + i);//remove if "dead"
+			i--;//decrement to prevent skipping an entity
+
 		}
 	}
 	//scores & stuff?

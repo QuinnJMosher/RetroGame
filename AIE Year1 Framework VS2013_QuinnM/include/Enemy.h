@@ -12,6 +12,7 @@ public:
 	void Draw();
 
 	void Move(float in_deltaTime);
+	void Collide(Entity &other);
 
 	bool IsAlive();
 	bool TakeDamage(unsigned int in_dammage); //returns false if dead
@@ -33,6 +34,7 @@ private:
 	static const char* ENEMY_TEXTURE_PATH;
 	static const float ENEMY_WIDTH;
 	static const float ENEMY_HEIGHT;
+	static const char ENEMY_TYPE_TAG;
 };
 
 #endif
