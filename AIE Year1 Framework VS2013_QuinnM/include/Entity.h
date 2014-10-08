@@ -13,7 +13,7 @@ public:
 	bool hasColidedWith(Entity &other);
 	virtual ~Entity();
 
-	virtual void Update(float in_deltaTime) = 0;
+	virtual bool Update(float in_deltaTime) = 0;
 	virtual void Draw() = 0;
 	virtual bool IsAlive() = 0;
 	virtual void Collide(Entity &other) = 0;
@@ -21,10 +21,16 @@ public:
 	char type;
 	int OwnerId;
 
+	//bullet creation stuff
+	unsigned int bullletDammage;
+	float bullletSpeedX;
+	float bullletSpeedY;
+
+	Point position;
+
 protected:
 	unsigned int spriteID;
 
-	Point position;
 	float width;
 	float height;
 	

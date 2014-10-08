@@ -19,7 +19,7 @@ int main( int argc, char* argv[] )
     SetBackgroundColour(SColour(0, 100, 255, 255));
 	bool continuePlay = true;
 	GameState currentState = MAIN_MENU;
-	Game game;
+	Game *game;
 
     //Game Loop
     do
@@ -42,10 +42,10 @@ int main( int argc, char* argv[] )
 			break;
 
 		case GAMEPLAY:
-			game = Game();
-			game.Start(); //-> game will contain it's own loop so anything beyond this is after the game loop has ended.
+			game = new Game();
+			(*game).Start(); //-> game will contain it's own loop so anything beyond this is after the game loop has ended.
 			//game has exited
-			game.~Game();
+			(*game).~Game();
 			currentState = MAIN_MENU;
 			break;
 

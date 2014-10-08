@@ -10,7 +10,7 @@ public:
 	Bullet(float in_x, float in_y);
 	~Bullet();
 
-	void Update(float in_deltaTime);
+	bool Update(float in_deltaTime);
 	void Draw();
 
 	bool IsAlive();

@@ -5,8 +5,8 @@
 #include "AIE.h"
 
 const char* Bullet::BULLET_TEXTURE_PATH = "./images/invaders/invaders_7_01.png";
-const float Bullet::BULLET_WIDTH = 10;
-const float Bullet:: BULLET_HEIGHT = 10;
+const float Bullet::BULLET_WIDTH = 20;
+const float Bullet:: BULLET_HEIGHT = 20;
 const char Bullet::BULLET_TYPE_TAG = 'B';
 
 Bullet::Bullet(float in_x, float in_y, float in_velocityX, float in_velocityY, int in_damage, int in_owner) : Entity(in_x, in_y, BULLET_WIDTH, BULLET_HEIGHT, BULLET_TEXTURE_PATH, BULLET_TYPE_TAG, in_owner) {
@@ -88,11 +88,12 @@ void Bullet::Hit() {
 	hasHit = true;
 }
 
-void Bullet::Update(float in_deltaTime) {
+bool Bullet::Update(float in_deltaTime) {
 	position.x += (xVelocity * in_deltaTime);
 	position.y += (yVelocity * in_deltaTime);
 
 	MoveSprite(spriteID, position.x, position.y);
+	return false;
 }
 
 void Bullet::Draw() {

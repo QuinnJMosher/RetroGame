@@ -8,7 +8,7 @@ public:
 	Enemy(float in_x, float in_y);
 	~Enemy();
 
-	void Update(float in_deltaTime);
+	bool Update(float in_deltaTime);
 	void Draw();
 
 	void Move(float in_deltaTime);

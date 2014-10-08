@@ -22,8 +22,9 @@ Enemy::Enemy(float in_x, float in_y) : Entity(in_x, in_y, ENEMY_WIDTH, ENEMY_HEI
 
 Enemy::~Enemy() { }
 
-void Enemy::Update(float in_deltaTime) {//override
+bool Enemy::Update(float in_deltaTime) {//override
 	Move(in_deltaTime);
+	return false;
 }
 
 void Enemy::Draw() {//override

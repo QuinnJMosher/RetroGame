@@ -22,13 +22,15 @@ Player::Player() : Entity(PLAYER_START_X, PLAYER_START_Y, PLAYER_WIDTH, PLAYER_H
 	this->xVelocity = 0.f;
 	this->yVelocity = 0.f;
 
-	this->xSpeed = 100.f;
-	this->ySpeed = 100.f;
+	this->xSpeed = 400.f;
+	this->ySpeed = 200.f;
 
 	this->maxHitPoints = 100;
 	this->hitPoints = 100;
 
 	this->bullletDammage = 10;
+	this->bullletSpeedX = 0;
+	this->bullletSpeedY = 300;
 
 	this->immunityTime = 0.f;
 	this->firePauseTime = 0.f;
@@ -36,7 +38,7 @@ Player::Player() : Entity(PLAYER_START_X, PLAYER_START_Y, PLAYER_WIDTH, PLAYER_H
 
 Player::~Player() { }
 
-void Player::Update(float in_deltaTime)  {//override
+bool Player::Update(float in_deltaTime)  {//override
 
 	Move(in_deltaTime);
 
@@ -49,10 +51,12 @@ void Player::Update(float in_deltaTime)  {//override
 		firePauseTime -= in_deltaTime;
 	} else {
 		if (IsKeyDown(inputKeyFire)) {
-			Fire();//add a bullet to the entity list in front of player (create an emitter point?)
+			//Fire();//add a bullet to the entity list in front of player (create an emitter point?)
 			firePauseTime = FIRE_INTERVAL;
+			return true;
 		}
 	}
+	return false;
 }
 
 void Player::Move(float in_deltaTime) {
@@ -96,6 +100,7 @@ void Player::Move(float in_deltaTime) {
 
 void Player::Fire() {
 	//(*GlobalInfo::currentGame).entities.emplace_back(new Bullet(position.x, position.y,0,300,bullletDammage, OwnerId));
+	
 }
 
 void Player::Collide(Entity &other) {//override
@@ -154,7 +159,7 @@ bool Player::IsAlive() {//Override
 
 bool Player::TakeDamage(unsigned int in_dammage) {
 	immunityTime += IMUNITY_INTERVAL;
-	maxHitPoints -= in_dammage;
+	hitPoints -= in_dammage;
 	return IsAlive();
 }
 

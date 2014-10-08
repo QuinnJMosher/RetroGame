@@ -2,12 +2,15 @@
 #include "GlobalInfo.h"
 #include "AIE.h"
 #include <vector>
+#include <time.h>
 #include "Entity.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Bullet.h"
 
 Game::Game() {
 	entities = std::vector<Entity*>();
+	srand(time(NULL));
 	//construct curentScript
 }
 
@@ -20,13 +23,13 @@ void Game::Update(float in_deltaTime) {
 	//loop through vector
 	for (int i = 0; i < entities.size(); i++) {
 
-		(*entities[i]).Update(in_deltaTime);//call update
+		bool addBullet = (*entities[i]).Update(in_deltaTime);//call update (check if a bullet needs to be created)
 
-		for (int j = i + 1; j < entities.size(); j++) {
+		for (int j = i + 1; j < entities.size(); j++) {//loop through the rest of the array
 
-			if ((*entities[i]).hasColidedWith((*entities[j]))) {
+			if ((*entities[i]).hasColidedWith((*entities[j]))) {//check weather a colision has hapened
 
-				(*entities[i]).Collide((*entities[j]));
+				(*entities[i]).Collide((*entities[j]));//colide
 
 			}
 
@@ -34,10 +37,33 @@ void Game::Update(float in_deltaTime) {
 
 		if (!(*entities[i]).IsAlive()) {//check if it is still alive
 
+			switch ((*entities[i]).type)//add points
+			{
+			case 'P':
+				gamePlaying = false;
+				break;
+			case 'E':
+				GlobalInfo::playerPoints += 10;
+				break;
+			case 'B':
+				//no points
+				break;
+			default:
+				break;
+			}
+
 			entities.erase(entities.begin() + i);//remove if "dead"
 			i--;//decrement to prevent skipping an entity
 
 		}
+
+		if (addBullet) {//add a bullet if needed
+			entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
+		}
+	}
+	//add enemies (currently random)
+	if (rand() < 10) {
+		entities.emplace_back(new Enemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
 	}
 	//scores & stuff?
 }
@@ -48,6 +74,9 @@ void Game::Draw() {
 	for (int i = 0; i < entities.size(); i++) {
 		(*entities[i]).Draw();
 	}
+
+	//draw displays
+	DrawString("display", GlobalInfo::SCREEN_MAX_X * 0.01f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 }
 
 int Game::Initalize() {//called before loadcontent

@@ -12,6 +12,10 @@ Entity::Entity(float in_x, float in_y, float in_width, float in_height, const ch
 	this->OwnerId = nextOwnerId;
 	this->type = in_type;
 
+	this->bullletDammage = 0;
+	this->bullletSpeedX = 0;
+	this->bullletSpeedY = 0;
+
 	nextOwnerId++;
 }
 

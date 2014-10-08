@@ -9,7 +9,7 @@ public:
 	~Player();
 
 	//standard method calls
-	void Update(float in_deltaTime);
+	bool Update(float in_deltaTime);
 	void Draw();
 
 	//assignment operator
@@ -44,7 +44,6 @@ private:
 	//stats
 	unsigned int maxHitPoints;
 	unsigned int hitPoints;
-	unsigned int bullletDammage;
 
 	//interval vars
 	float immunityTime;
