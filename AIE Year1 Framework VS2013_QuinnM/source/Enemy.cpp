@@ -20,6 +20,16 @@ Enemy::Enemy(float in_x, float in_y) : Entity(in_x, in_y, ENEMY_WIDTH, ENEMY_HEI
 	this->pointValue = 10;
 }
 
+Enemy::Enemy(float in_x, float in_y, float in_width, float in_height, char* in_txPath, float in_xSpeed, float in_ySpeed, int in_hp, int in_ptValue) : Entity(in_x, in_y, in_width, in_height,  in_txPath, ENEMY_TYPE_TAG) {
+	this->xVelocity = 0;
+	this->yVelocity = 0;
+	this->xSpeed = in_xSpeed;
+	this->ySpeed = in_ySpeed;
+
+	this->hitPoints = in_hp;
+	this->pointValue = in_ptValue;
+}
+
 Enemy::~Enemy() { }
 
 bool Enemy::Update(float in_deltaTime) {//override
