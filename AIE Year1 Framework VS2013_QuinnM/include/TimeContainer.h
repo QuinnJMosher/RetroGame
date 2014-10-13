@@ -1,11 +1,11 @@
-#ifndef _TimeKeeper_h_
-#define _TimeKeeper_h_
+#ifndef _TimeContainer_h_
+#define _TimeContainer_h_
 
-class TimeKeeper {
+class TimeContainer {
 public:
-	TimeKeeper();
-	TimeKeeper(unsigned int in_startMin, unsigned int in_startSec, float in_startMili);
-	~TimeKeeper();
+	TimeContainer();
+	TimeContainer(unsigned int in_startMin, unsigned int in_startSec, float in_startMili);
+	~TimeContainer();
 
 	void update(float in_deltaTime);
 

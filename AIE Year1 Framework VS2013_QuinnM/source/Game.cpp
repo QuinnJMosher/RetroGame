@@ -12,6 +12,7 @@
 
 Game::Game() {
 	entities = std::vector<Entity*>();
+	timeKeeper = TimeContainer();
 	srand(time(NULL));
 	//construct curentScript
 }
@@ -22,6 +23,8 @@ Game::~Game() {
 }
 
 void Game::Update(float in_deltaTime) {
+	//update time
+	timeKeeper.update(in_deltaTime);
 	//loop through vector
 	for (int i = 0; i < entities.size(); i++) {
 
@@ -113,15 +116,19 @@ void Game::Draw() {
 	DrawString(drawH, GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
 	//life display
-	char drawL[6] = "L: ";
+	char drawL[6] = "";
 	strcpy(drawL, GlobalInfo::livesToString());
 	DrawString(drawL, GlobalInfo::SCREEN_MAX_X * 0.6f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+
+	//time display
+	DrawString(timeKeeper.toString(), GlobalInfo::SCREEN_MAX_X * 0.8f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 }
 
 int Game::Initalize() {//called before loadcontent
 	//create player in vector, ect
 	GlobalInfo::playerPoints = 0;
 	GlobalInfo::playerLives = 2;
+	timeKeeper.reset();
 
 	entities.emplace_back(new Player());
 	return 0;

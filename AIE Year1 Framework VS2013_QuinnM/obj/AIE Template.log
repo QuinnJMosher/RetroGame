@@ -1,34 +1,72 @@
-﻿Build started 10/13/2014 4:29:23 PM.
+﻿Build started 10/13/2014 4:54:30 PM.
      1>Project "C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\AIE Template.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\BigEnemy.cpp source\Enemy.cpp source\FastEnemy.cpp source\Game.cpp source\Player.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Bullet.cpp source\Enemy.cpp source\Game.cpp source\GlobalInfo.cpp source\Player.cpp source\main.cpp
+         Game.cpp
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(20): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(16): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(29): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(33): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(84): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(89): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(93): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(103): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(110): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(111): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(115): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(116): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(120): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(121): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(124): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         Generating Code...
+         Compiling...
+         main.cpp
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(20): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
          Player.cpp
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(19): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(20): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
      1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\player.cpp(11): warning C4244: 'initializing' : conversion from 'int' to 'const float', possible loss of data
      1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\player.cpp(12): warning C4244: 'initializing' : conversion from 'double' to 'const float', possible loss of data
      1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\player.cpp(220): warning C4172: returning address of local variable or temporary
-         Game.cpp
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(19): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(15): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(26): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(30): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(81): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(86): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(90): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(100): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(107): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         GlobalInfo.cpp
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(20): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(16): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(18): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(20): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(27): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(108): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(112): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(29): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(32): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(34): warning C4172: returning address of local variable or temporary
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(41): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(43): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(49): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(113): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(117): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(51): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(54): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(56): warning C4172: returning address of local variable or temporary
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(64): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(118): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         FastEnemy.cpp
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(67): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(70): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\globalinfo.cpp(72): warning C4172: returning address of local variable or temporary
          Enemy.cpp
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(19): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
-         BigEnemy.cpp
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(20): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
+         Bullet.cpp
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(20): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
          Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\AIE Template_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:./libs AIE_1st_Year_Framework_d.lib kernel32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\AIE Template_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\AIE Template_d.lib" /MACHINE:X86 obj\BigEnemy.obj
@@ -46,32 +84,14 @@
      1>BigEnemy.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
      1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-         Generating code
-         Finished generating code
-     1>AIE_1st_Year_Framework_d.lib(SOIL.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(SOIL.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc110.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(stb_image_aug.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(stb_image_aug.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc110.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(image_helper.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(image_helper.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc110.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(image_DXT.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(image_DXT.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc110.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(tinystr.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(tinystr.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(tinyxml.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(tinyxml.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(tinyxmlerror.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(tinyxmlerror.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(tinyxmlHelper.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(tinyxmlHelper.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(tinyxmlparser.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(tinyxmlparser.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(AIE.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(AIE.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(AIE_Framework.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(AIE_Framework.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(BasicSprite.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(BasicSprite.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(Font.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(Font.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(FontManager.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(FontManager.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(Gizmos.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(Gizmos.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(SpriteManager.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(SpriteManager.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(strHandler.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(strHandler.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(Texture.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(Texture.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(TextureManager.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(TextureManager.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(Utilities.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(Utilities.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc120.pdb'; linking object as if no debug info
-     1>AIE_1st_Year_Framework_d.lib(glew.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(glew.obj)' or at 'C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\vc100.pdb'; linking object as if no debug info
-         AIE Template.vcxproj -> C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\bin\AIE Template_d.exe
-     1>Done Building Project "C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\AIE Template.vcxproj" (Build target(s)).
+     1>Game.obj : error LNK2001: unresolved external symbol "public: __thiscall TimeContainer::TimeContainer(void)" (??0TimeContainer@@QAE@XZ)
+     1>Game.obj : error LNK2001: unresolved external symbol "public: __thiscall TimeContainer::~TimeContainer(void)" (??1TimeContainer@@QAE@XZ)
+     1>Game.obj : error LNK2001: unresolved external symbol "public: void __thiscall TimeContainer::update(float)" (?update@TimeContainer@@QAEXM@Z)
+     1>Game.obj : error LNK2001: unresolved external symbol "public: char * __thiscall TimeContainer::toString(void)" (?toString@TimeContainer@@QAEPADXZ)
+     1>Game.obj : error LNK2001: unresolved external symbol "public: void __thiscall TimeContainer::reset(void)" (?reset@TimeContainer@@QAEXXZ)
+     1>bin\AIE Template_d.exe : fatal error LNK1120: 5 unresolved externals
+     1>Done Building Project "C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\AIE Template.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.91
+Time Elapsed 00:00:01.46

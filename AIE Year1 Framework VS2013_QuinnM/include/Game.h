@@ -1,6 +1,7 @@
 #include <vector>
 #include "Entity.h"
 #include "Player.h"
+#include "TimeContainer.h"
 
 #ifndef _Game_h_
 #define _Game_h_
@@ -19,9 +20,10 @@ private:
 	void Draw();
 	int Initalize();
 	int LoadContent();
-
 	
+
 	//EnemyScript curentScript;
+	TimeContainer timeKeeper;
 	bool gamePlaying;
 };
 

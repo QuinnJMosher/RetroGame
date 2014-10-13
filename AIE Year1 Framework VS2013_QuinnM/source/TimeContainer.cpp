@@ -1,14 +1,14 @@
-#include "TimeKeeper.h"
+#include "TimeContainer.h"
 #include <cstring>
 #include <cstdlib>
 
-TimeKeeper::TimeKeeper() {
+TimeContainer::TimeContainer() {
 	this->miliseconds = 0.0f;
 	this->seconds = 0;
 	this->minutes = 0;
 }
 
-TimeKeeper::TimeKeeper(unsigned int in_startMin, unsigned int in_startSec, float in_startMili) {
+TimeContainer::TimeContainer(unsigned int in_startMin, unsigned int in_startSec, float in_startMili) {
 	this->miliseconds = in_startMili;
 	while (miliseconds > 0) {
 		miliseconds /= 10;
@@ -17,9 +17,9 @@ TimeKeeper::TimeKeeper(unsigned int in_startMin, unsigned int in_startSec, float
 	this->minutes = in_startMin;
 }
 
-TimeKeeper::~TimeKeeper() { }
+TimeContainer::~TimeContainer() { }
 
-void TimeKeeper::update(float in_deltaTime) {
+void TimeContainer::update(float in_deltaTime) {
 	miliseconds += in_deltaTime;
 	
 	while (miliseconds > 0) {
@@ -33,7 +33,7 @@ void TimeKeeper::update(float in_deltaTime) {
 	}
 }
 
-char* TimeKeeper::toString() {
+char* TimeContainer::toString() {
 
 	if (minutes < 10) {
 		char out[8] = "T: ";
@@ -54,24 +54,24 @@ char* TimeKeeper::toString() {
 	}
 }
 
-int TimeKeeper::getTotalSecs() {
+int TimeContainer::getTotalSecs() {
 	return ((minutes * 60) + seconds);
 }
 
-int TimeKeeper::getOnlySecs() {
+int TimeContainer::getOnlySecs() {
 	return seconds;
 }
 
-int TimeKeeper::getMin() {
+int TimeContainer::getMin() {
 	return minutes;
 }
 
-void TimeKeeper::setTime(unsigned int in_newMin, unsigned int in_newSec) {
+void TimeContainer::setTime(unsigned int in_newMin, unsigned int in_newSec) {
 	this->seconds = in_newSec;
 	this->minutes = in_newMin;
 }
 
-void TimeKeeper::setTime(unsigned int in_newMin, unsigned int in_newSec, float in_newMili) {
+void TimeContainer::setTime(unsigned int in_newMin, unsigned int in_newSec, float in_newMili) {
 	this->miliseconds = in_newMili;
 	while (miliseconds > 0) {
 		miliseconds /= 10;
@@ -80,7 +80,7 @@ void TimeKeeper::setTime(unsigned int in_newMin, unsigned int in_newSec, float i
 	this->minutes = in_newMin;
 }
 
-void TimeKeeper::reset() {
+void TimeContainer::reset() {
 	this->miliseconds = 0.0f;
 	this->seconds = 0;
 	this->minutes = 0;
