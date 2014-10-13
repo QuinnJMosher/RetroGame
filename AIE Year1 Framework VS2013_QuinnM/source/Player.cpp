@@ -162,7 +162,11 @@ bool Player::IsAlive() {//Override
 
 bool Player::TakeDamage(unsigned int in_dammage) {
 	immunityTime += IMUNITY_INTERVAL;
-	hitPoints -= in_dammage;
+	if (in_dammage > hitPoints) {
+		hitPoints = 0;
+	} else {
+		hitPoints -= in_dammage;
+	}
 	return IsAlive();
 }
 

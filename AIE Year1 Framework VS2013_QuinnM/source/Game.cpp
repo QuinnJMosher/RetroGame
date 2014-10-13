@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "BigEnemy.h"
+#include "FastEnemy.h"
 #include "Bullet.h"
 
 Game::Game() {
@@ -63,7 +64,7 @@ void Game::Update(float in_deltaTime) {
 
 		}
 
-		if (i > 0) {
+		if (i >= 0) {
 			if (addBullet) {//add a bullet if needed
 				entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
 			}
@@ -73,10 +74,21 @@ void Game::Update(float in_deltaTime) {
 	//add enemies (currently random)
 	if (rand() < 100) {
 		int addType = rand() % 100;
-		if (addType < 10) {
+		if (addType < 20) {// small + fase enemies
+
+			int numSmallEnimies = rand() % 6;
+			for (int k = 0; k < numSmallEnimies; k++) {
+				entities.emplace_back(new FastEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+			}
+
+		} else if (addType < 25) {//large + slow enemy
+
 			entities.emplace_back(new BigEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
-		} else {
+
+		} else {//standard enemy
+
 			entities.emplace_back(new Enemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+
 		}
 	}
 	//scores & stuff?

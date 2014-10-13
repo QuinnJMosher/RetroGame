@@ -16,7 +16,7 @@ Enemy::Enemy(float in_x, float in_y) : Entity(in_x, in_y, ENEMY_WIDTH, ENEMY_HEI
 	this->xSpeed = 0;
 	this->ySpeed = -100;
 
-	this->hitPoints = 40;
+	this->hitPoints = 25;
 	this->pointValue = 10;
 }
 
@@ -59,7 +59,11 @@ bool Enemy::IsAlive() {//override
 }
 
 bool Enemy::TakeDamage(unsigned int in_dammage) {
-	hitPoints -= in_dammage;
+	if (in_dammage > hitPoints) {
+		hitPoints = 0;
+	} else {
+		hitPoints -= in_dammage;
+	}
 	if (hitPoints <= 0) {
 		return false;
 	}
