@@ -42,8 +42,7 @@ bool Enemy::IsAlive() {//override
 	if (hitPoints <= 0) {
 		GlobalInfo::playerPoints += pointValue;
 		return false;
-	}
-	else if (position.y < 0 - width) {
+	} else if (position.y < 0 - width) {
 		return false;
 	}
 	return true;

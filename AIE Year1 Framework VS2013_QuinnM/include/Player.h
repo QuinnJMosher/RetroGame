@@ -50,7 +50,7 @@ private:
 	float firePauseTime;
 	//interval constants
 	const float IMUNITY_INTERVAL = 1.f;
-	const float FIRE_INTERVAL = 0.25f;
+	const float FIRE_INTERVAL = 0.1f;
 
 	//player constants
 	static const char* PLAYER_TEXTURE_PATH;

@@ -39,11 +39,16 @@ void Game::Update(float in_deltaTime) {
 
 			switch ((*entities[i]).type)//add points
 			{
-			case 'P':
-				gamePlaying = false;
+			case 'P'://consider changing to an if statement
+				if (GlobalInfo::playerLives > 0) {
+					entities.emplace_back(new Player());
+					GlobalInfo::playerLives--;
+				} else {
+					gamePlaying = false;
+				}
 				break;
 			case 'E':
-				GlobalInfo::playerPoints += 10;
+				//points applied in Isalive Meathod
 				break;
 			case 'B':
 				//no points
@@ -61,8 +66,9 @@ void Game::Update(float in_deltaTime) {
 			entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
 		}
 	}
+
 	//add enemies (currently random)
-	if (rand() < 10) {
+	if (rand() < 100) {
 		entities.emplace_back(new Enemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
 	}
 	//scores & stuff?
@@ -76,18 +82,28 @@ void Game::Draw() {
 	}
 
 	//draw displays
-	DrawString("display", GlobalInfo::SCREEN_MAX_X * 0.01f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+	//point display
+	char drawP[14] = "";
+	strcpy(drawP, GlobalInfo::pointsToString());
+	DrawString(drawP, GlobalInfo::SCREEN_MAX_X * 0.01f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+
+	//health display
+	char drawH[9] = "";
+	strcpy(drawH, GlobalInfo::healthToString());
+	DrawString(drawH, GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+
+	//life display
+	char drawL[6] = "L: ";
+	strcpy(drawL, GlobalInfo::livesToString());
+	DrawString(drawL, GlobalInfo::SCREEN_MAX_X * 0.6f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 }
 
 int Game::Initalize() {//called before loadcontent
 	//create player in vector, ect
 	GlobalInfo::playerPoints = 0;
-	GlobalInfo::playerLives = 3;
+	GlobalInfo::playerLives = 2;
 
 	entities.emplace_back(new Player());
-	entities.emplace_back(new Enemy(GlobalInfo::SCREEN_MAX_X * 0.33, GlobalInfo::SCREEN_MAX_Y));
-	entities.emplace_back(new Enemy(GlobalInfo::SCREEN_MAX_X * 0.66, GlobalInfo::SCREEN_MAX_Y - 50));
-	entities.emplace_back(new Enemy(GlobalInfo::SCREEN_MAX_X * 1, GlobalInfo::SCREEN_MAX_Y - 100));
 	return 0;
 }
 

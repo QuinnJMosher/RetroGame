@@ -34,6 +34,7 @@ void Entity::BuildSprite(const char* in_filePath) {
 
 Entity::~Entity() {
 	position.~Point();
+	DestroySprite(this->spriteID);
 }
 
 bool Entity::hasColidedWith(Entity &other) {

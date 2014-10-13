@@ -28,12 +28,12 @@ Player::Player() : Entity(PLAYER_START_X, PLAYER_START_Y, PLAYER_WIDTH, PLAYER_H
 	this->maxHitPoints = 100;
 	this->hitPoints = 100;
 
-	this->bullletDammage = 10;
+	this->bullletDammage = 4;
 	this->bullletSpeedX = 0;
-	this->bullletSpeedY = 300;
+	this->bullletSpeedY = 900;
 
-	this->immunityTime = 0.f;
-	this->firePauseTime = 0.f;
+	this->immunityTime = 1.25f;
+	this->firePauseTime = 1.25f;
 }
 
 Player::~Player() { }
@@ -56,6 +56,9 @@ bool Player::Update(float in_deltaTime)  {//override
 			return true;
 		}
 	}
+
+	GlobalInfo::globalPlayerHealth = this->hitPoints;
+
 	return false;
 }
 

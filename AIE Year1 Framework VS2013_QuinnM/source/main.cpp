@@ -16,7 +16,7 @@ int main( int argc, char* argv[] )
 {	
 	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, "Retro Game");
     
-    SetBackgroundColour(SColour(0, 100, 255, 255));
+    SetBackgroundColour(SColour(0, 0, 0, 255));
 	bool continuePlay = true;
 	GameState currentState = MAIN_MENU;
 	Game *game;
