@@ -6,6 +6,7 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "BigEnemy.h"
 #include "Bullet.h"
 
 Game::Game() {
@@ -37,7 +38,7 @@ void Game::Update(float in_deltaTime) {
 
 		if (!(*entities[i]).IsAlive()) {//check if it is still alive
 
-			switch ((*entities[i]).type)//add points
+			switch ((*entities[i]).type)//add points/remove lives
 			{
 			case 'P'://consider changing to an if statement
 				if (GlobalInfo::playerLives > 0) {
@@ -62,14 +63,21 @@ void Game::Update(float in_deltaTime) {
 
 		}
 
-		if (addBullet) {//add a bullet if needed
-			entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
+		if (i > 0) {
+			if (addBullet) {//add a bullet if needed
+				entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
+			}
 		}
 	}
 
 	//add enemies (currently random)
 	if (rand() < 100) {
-		entities.emplace_back(new Enemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+		int addType = rand() % 100;
+		if (addType < 10) {
+			entities.emplace_back(new BigEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+		} else {
+			entities.emplace_back(new Enemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+		}
 	}
 	//scores & stuff?
 }

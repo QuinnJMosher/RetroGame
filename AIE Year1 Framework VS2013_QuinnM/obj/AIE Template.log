@@ -1,33 +1,27 @@
-﻿Build started 10/13/2014 1:24:59 PM.
+﻿Build started 10/13/2014 2:34:02 PM.
      1>Project "C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\AIE Template.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Bullet.cpp source\Enemy.cpp source\Game.cpp source\Player.cpp
-         Enemy.cpp
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(19): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
-         Generating Code...
-         Compiling...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Game.cpp
          Game.cpp
      1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(19): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(13): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(24): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(28): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(72): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(80): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(87): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(14): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(25): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(29): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(77): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(79): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(88): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(95): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(88): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(92): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(96): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(100): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(93): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(97): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(101): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(105): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(98): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         Player.cpp
-         Bullet.cpp
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(106): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\AIE Template_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:./libs AIE_1st_Year_Framework_d.lib kernel32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\AIE Template_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\AIE Template_d.lib" /MACHINE:X86 obj\Bullet.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\AIE Template_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:./libs AIE_1st_Year_Framework_d.lib kernel32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\AIE Template_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\AIE Template_d.lib" /MACHINE:X86 obj\BigEnemy.obj
+         obj\Bullet.obj
          obj\Enemy.obj
          obj\Entity.obj
          obj\Game.obj
@@ -37,7 +31,7 @@
          obj\Point.obj
          AIE_1st_Year_Framework_d.lib(SOIL.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
      1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
-     1>Bullet.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+     1>BigEnemy.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
      1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
          Generating code
@@ -68,4 +62,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.67
+Time Elapsed 00:00:01.07
