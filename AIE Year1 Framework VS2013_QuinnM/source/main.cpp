@@ -19,6 +19,9 @@ enum GameState {
 	END
 };
 
+bool hasScoreChecked = false;
+bool newHighScore = false;
+
 int main( int argc, char* argv[] )
 {	
 	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, "Retro Game");
@@ -66,6 +69,10 @@ int main( int argc, char* argv[] )
 		}
 	}
 
+	hsFile.sync();
+	hsFile.close();
+	hsFile.clear();
+
     //Game Loop
     do
 	{
@@ -91,6 +98,8 @@ int main( int argc, char* argv[] )
 			break;
 
 		case GAMEPLAY:
+			hasScoreChecked = false;
+			newHighScore = false;
 			game = new Game();
 			lastScore = (*game).Start(); //-> game contains it's own loop so anything beyond this is after the game loop has ended.
 			//game has exited
@@ -111,7 +120,22 @@ int main( int argc, char* argv[] )
 			strcpy(scSt, lastScore.ToStringTime());
 			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
 
-			//draw "New Highscore" if score is a highscore 
+			//draw "New Highscore" if score is a highscore
+			if (!hasScoreChecked) {
+				for (int i = 0; i < 3; i++) {
+					if (lastScore.CompareTo(highScores[i]) >= 0) {
+						newHighScore = true;
+						highScores.insert(highScores.begin() + i, lastScore);
+						highScores.erase(highScores.begin() + 3);
+						break;
+					}
+				}
+				hasScoreChecked = true;
+			}
+
+			if (newHighScore) {
+				DrawString("New High Score!", GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
+			}
 
 			//draw advance info
 			DrawString("press \"m\" to return to menu", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
@@ -134,22 +158,22 @@ int main( int argc, char* argv[] )
 			//display scores
 
 			///score1
-			//strcpy(scSt, highScores[1].ToStringPoints());
-			DrawString("0000", GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
-			//strcpy(scSt, highScores[1].ToStringTime());
-			DrawString("0:00", GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
+			strcpy(scSt, highScores[0].ToStringPoints());
+			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
+			strcpy(scSt, highScores[0].ToStringTime());
+			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
 
 			///score2
-			//strcpy(scSt, highScores[2].ToStringPoints());
-			DrawString("0000", GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
-			//strcpy(scSt, highScores[2].ToStringTime());
-			DrawString("0:00", GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
+			strcpy(scSt, highScores[1].ToStringPoints());
+			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
+			strcpy(scSt, highScores[1].ToStringTime());
+			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
 
 			///score3
-			//strcpy(scSt, highScores[3].ToStringPoints());
-			DrawString("0000", GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
-			//strcpy(scSt, highScores[3].ToStringTime());
-			DrawString("0:00", GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
+			strcpy(scSt, highScores[2].ToStringPoints());
+			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
+			strcpy(scSt, highScores[2].ToStringTime());
+			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
 
 			//draw advance info
 			DrawString("press \"m\" to return to menu", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
@@ -165,6 +189,21 @@ int main( int argc, char* argv[] )
 			break;
 
 		case END:
+				hsFile.open("highScores.txt", ios_base::out);
+			if (hsFile.is_open()) {
+				for (int i = 0; i < 3; i++) {
+					hsFile << highScores[i].points << " ";
+					hsFile << highScores[i].min << " ";
+					hsFile << highScores[i].sec << "\n";
+				}
+			} else {
+				cout << "Highscore write error";
+			}
+
+			hsFile.sync();
+			hsFile.close();
+			hsFile.clear();
+
 			continuePlay = false;
 			break;
 

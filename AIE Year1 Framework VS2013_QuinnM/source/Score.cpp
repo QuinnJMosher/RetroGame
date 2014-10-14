@@ -66,11 +66,11 @@ int Score::CompareTo(Score other) {
 
 		if (this->min == other.min) {
 
-			return this->sec - other.sec;
+			return other.sec - this->sec;
 
 		}
 		else {
-			return this->min - other.min;
+			return other.min - this->min;
 		}
 
 	}
