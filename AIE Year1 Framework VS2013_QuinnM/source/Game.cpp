@@ -75,16 +75,16 @@ void Game::Update(float in_deltaTime) {
 	}
 
 	//add enemies (currently random)
-	if (rand() < 100) {
+	if (rand() < ((timeKeeper.getMin() + 1) * 100)) {
 		int addType = rand() % 100;
-		if (addType < 20) {// small + fase enemies
+		if (addType < 20 && timeKeeper.getOnlySecs() > 20) {// small + fase enemies
 
 			int numSmallEnimies = rand() % 6;
 			for (int k = 0; k < numSmallEnimies; k++) {
 				entities.emplace_back(new FastEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
 			}
 
-		} else if (addType < 25) {//large + slow enemy
+		} else if (addType < 25 && timeKeeper.getOnlySecs() > 30) {//large + slow enemy
 
 			entities.emplace_back(new BigEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
 
@@ -123,7 +123,7 @@ void Game::Draw() {
 	//time display
 	char drawT[9] = "";
 	strcpy(drawT, timeKeeper.toString());
-	DrawString(drawT, GlobalInfo::SCREEN_MAX_X * 0.8f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+	DrawString(drawT, GlobalInfo::SCREEN_MAX_X * 0.76f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 }
 
 int Game::Initalize() {//called before loadcontent

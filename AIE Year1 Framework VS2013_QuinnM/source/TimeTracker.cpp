@@ -27,7 +27,7 @@ void TimeTracker::update(float in_deltaTime) {
 		seconds++;
 	}
 
-	while (seconds > 60) {
+	while (seconds >= 60) {
 		seconds -= 60;
 		minutes++;
 	}
