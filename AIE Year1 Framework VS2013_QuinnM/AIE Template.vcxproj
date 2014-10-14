@@ -90,23 +90,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\BigEnemy.cpp" />
     <ClCompile Include="source\Bullet.cpp" />
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\Entity.cpp" />
+    <ClCompile Include="source\FastEnemy.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\GlobalInfo.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\Point.cpp" />
+    <ClCompile Include="source\Score.cpp" />
+    <ClCompile Include="source\TimeTracker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\BigEnemy.h" />
     <ClInclude Include="include\Bullet.h" />
     <ClInclude Include="include\Enemy.h" />
     <ClInclude Include="include\Entity.h" />
+    <ClInclude Include="include\FastEnemy.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GlobalInfo.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\Point.h" />
+    <ClInclude Include="include\Score.h" />
+    <ClInclude Include="include\TimeTracker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

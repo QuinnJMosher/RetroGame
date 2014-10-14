@@ -6,10 +6,13 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "BigEnemy.h"
+#include "FastEnemy.h"
 #include "Bullet.h"
 
 Game::Game() {
 	entities = std::vector<Entity*>();
+	timeKeeper = TimeTracker();
 	srand(time(NULL));
 	//construct curentScript
 }
@@ -20,6 +23,8 @@ Game::~Game() {
 }
 
 void Game::Update(float in_deltaTime) {
+	//update time
+	timeKeeper.update(in_deltaTime);
 	//loop through vector
 	for (int i = 0; i < entities.size(); i++) {
 
@@ -37,7 +42,7 @@ void Game::Update(float in_deltaTime) {
 
 		if (!(*entities[i]).IsAlive()) {//check if it is still alive
 
-			switch ((*entities[i]).type)//add points
+			switch ((*entities[i]).type)//add points/remove lives
 			{
 			case 'P'://consider changing to an if statement
 				if (GlobalInfo::playerLives > 0) {
@@ -62,14 +67,32 @@ void Game::Update(float in_deltaTime) {
 
 		}
 
-		if (addBullet) {//add a bullet if needed
-			entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
+		if (i >= 0) {
+			if (addBullet) {//add a bullet if needed
+				entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
+			}
 		}
 	}
 
 	//add enemies (currently random)
-	if (rand() < 100) {
-		entities.emplace_back(new Enemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+	if (rand() < ((timeKeeper.getMin() + 1) * 100)) {
+		int addType = rand() % 100;
+		if (addType < 20 && timeKeeper.getOnlySecs() > 20) {// small + fase enemies
+
+			int numSmallEnimies = rand() % 6;
+			for (int k = 0; k < numSmallEnimies; k++) {
+				entities.emplace_back(new FastEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+			}
+
+		} else if (addType < 25 && timeKeeper.getOnlySecs() > 30) {//large + slow enemy
+
+			entities.emplace_back(new BigEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+
+		} else {//standard enemy
+
+			entities.emplace_back(new Enemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+
+		}
 	}
 	//scores & stuff?
 }
@@ -93,15 +116,21 @@ void Game::Draw() {
 	DrawString(drawH, GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
 	//life display
-	char drawL[6] = "L: ";
+	char drawL[6] = "";
 	strcpy(drawL, GlobalInfo::livesToString());
 	DrawString(drawL, GlobalInfo::SCREEN_MAX_X * 0.6f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+
+	//time display
+	char drawT[9] = "";
+	strcpy(drawT, timeKeeper.toString());
+	DrawString(drawT, GlobalInfo::SCREEN_MAX_X * 0.76f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 }
 
 int Game::Initalize() {//called before loadcontent
 	//create player in vector, ect
 	GlobalInfo::playerPoints = 0;
 	GlobalInfo::playerLives = 2;
+	timeKeeper.reset();
 
 	entities.emplace_back(new Player());
 	return 0;
@@ -112,13 +141,13 @@ int Game::LoadContent() {//called before start
 	return 0;
 }
 
-void Game::Start() {
+Score Game::Start() {
 	Initalize();
 	LoadContent();
 
 	do {
 		//debug inputs
-		if (IsKeyDown('M')) {
+		if (IsKeyDown(256)) {
 			gamePlaying = false;
 		}
 
@@ -127,4 +156,9 @@ void Game::Start() {
 
 		ClearScreen();
 	} while (gamePlaying && !FrameworkUpdate());
+
+	Score score;
+	score.Set(GlobalInfo::playerPoints, timeKeeper.getMin(), timeKeeper.getOnlySecs());
+
+	return score;
 }

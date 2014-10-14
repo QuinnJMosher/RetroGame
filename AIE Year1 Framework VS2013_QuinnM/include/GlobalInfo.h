@@ -1,6 +1,7 @@
 #include <vector>
 #include "Entity.h"
 #include "Game.h"
+
 #ifndef _GlobalInfo_h_
 #define _GlobalInfo_h_
 

@@ -17,6 +17,9 @@ public:
 	bool IsAlive();
 	bool TakeDamage(unsigned int in_dammage); //returns false if dead
 
+protected:
+	Enemy(float in_x, float in_y, float in_width, float in_height, const char* in_txPath, float in_xSpeed, float in_ySpeed, int in_hp, int in_ptValue);
+
 private:
 
 	//forced movement vars
