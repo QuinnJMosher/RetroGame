@@ -45,6 +45,9 @@
     <ClCompile Include="source\FastEnemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\TimeTracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Game.h">
@@ -74,5 +77,12 @@
     <ClInclude Include="include\FastEnemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\TimeTracker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

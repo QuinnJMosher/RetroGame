@@ -1,7 +1,7 @@
 #include <vector>
 #include "Entity.h"
 #include "Player.h"
-#include "TimeContainer.h"
+#include "TimeTracker.h"
 
 #ifndef _Game_h_
 #define _Game_h_
@@ -23,7 +23,7 @@ private:
 	
 
 	//EnemyScript curentScript;
-	TimeContainer timeKeeper;
+	TimeTracker timeKeeper;
 	bool gamePlaying;
 };
 

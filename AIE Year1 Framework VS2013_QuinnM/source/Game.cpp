@@ -12,7 +12,7 @@
 
 Game::Game() {
 	entities = std::vector<Entity*>();
-	timeKeeper = TimeContainer();
+	timeKeeper = TimeTracker();
 	srand(time(NULL));
 	//construct curentScript
 }
@@ -121,7 +121,9 @@ void Game::Draw() {
 	DrawString(drawL, GlobalInfo::SCREEN_MAX_X * 0.6f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
 	//time display
-	DrawString(timeKeeper.toString(), GlobalInfo::SCREEN_MAX_X * 0.8f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+	char drawT[9] = "";
+	strcpy(drawT, timeKeeper.toString());
+	DrawString(drawT, GlobalInfo::SCREEN_MAX_X * 0.8f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 }
 
 int Game::Initalize() {//called before loadcontent
