@@ -1,9 +1,4 @@
 #include "Player.h"
-#include "GlobalInfo.h"
-#include "AIE.h"
-#include "Enemy.h"
-#include "Bullet.h"
-#include <typeinfo> 
 
 const char* Player::PLAYER_TEXTURE_PATH = "./images/invaders/invaders_4_00.png";
 const float Player::PLAYER_WIDTH = 40.f;

@@ -1,4 +1,9 @@
 #include "Entity.h"
+#include "GlobalInfo.h"
+#include "AIE.h"
+#include "Enemy.h"
+#include "Bullet.h"
+#include <typeinfo> 
 
 #ifndef _Player_h_
 #define _Player_h_

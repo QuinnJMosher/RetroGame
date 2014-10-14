@@ -51,6 +51,7 @@ void Enemy::Move(float in_deltaTime){
 bool Enemy::IsAlive() {//override
 	if (hitPoints <= 0) {
 		GlobalInfo::playerPoints += pointValue;
+		GlobalInfo::nexLifePoints += pointValue;
 		return false;
 	} else if (position.y < 0 - width) {
 		return false;

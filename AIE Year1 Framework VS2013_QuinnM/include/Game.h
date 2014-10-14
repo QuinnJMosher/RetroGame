@@ -1,7 +1,14 @@
+#include "AIE.h"
 #include <vector>
+#include <time.h>
 #include "Entity.h"
 #include "Player.h"
+#include "Bullet.h"
+#include "Enemy.h"
+#include "BigEnemy.h"
+#include "FastEnemy.h"
 #include "TimeTracker.h"
+#include "GlobalInfo.h"
 #include "Score.h"
 
 #ifndef _Game_h_

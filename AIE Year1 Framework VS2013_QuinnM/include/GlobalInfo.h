@@ -13,6 +13,7 @@ public:
 	static unsigned int globalPlayerHealth;
 	static unsigned int playerPoints;
 	static unsigned int playerLives;
+	static unsigned int nexLifePoints;
 
 	static char* pointsToString();
 	static char* healthToString();

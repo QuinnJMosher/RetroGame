@@ -1,14 +1,5 @@
 #include "game.h"
-#include "GlobalInfo.h"
-#include "AIE.h"
-#include <vector>
-#include <time.h>
-#include "Entity.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "BigEnemy.h"
-#include "FastEnemy.h"
-#include "Bullet.h"
+
 
 Game::Game() {
 	entities = std::vector<Entity*>();
@@ -19,7 +10,7 @@ Game::Game() {
 
 Game::~Game() {
 	entities.~vector();
-	//destroy curentScript
+	timeKeeper.~TimeTracker();
 }
 
 void Game::Update(float in_deltaTime) {
@@ -94,11 +85,17 @@ void Game::Update(float in_deltaTime) {
 
 		}
 	}
-	//scores & stuff?
+
+	if (GlobalInfo::nexLifePoints >= 2000) {
+		GlobalInfo::nexLifePoints -= 2000;
+		GlobalInfo::playerLives++;
+	}
 }
 
 void Game::Draw() {
 	//draw background
+	//\no background
+
 	//loop through vector
 	for (int i = 0; i < entities.size(); i++) {
 		(*entities[i]).Draw();

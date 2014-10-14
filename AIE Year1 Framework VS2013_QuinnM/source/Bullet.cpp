@@ -1,8 +1,4 @@
 #include "Bullet.h"
-#include "GlobalInfo.h"
-#include "Enemy.h"
-#include "Player.h"
-#include "AIE.h"
 
 const char* Bullet::BULLET_TEXTURE_PATH = "./images/invaders/invaders_7_01.png";
 const float Bullet::BULLET_WIDTH = 20;

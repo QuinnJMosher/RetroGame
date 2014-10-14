@@ -1,6 +1,4 @@
 #include "Score.h"
-#include <cstring>
-#include <cstdlib>
 
 char* Score::ToStringPoints() {
 	if (points > 9999) {
