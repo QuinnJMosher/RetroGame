@@ -1,8 +1,12 @@
 ﻿#include "AIE.h"
 #include <iostream>
+#include <vector>
+#include <fstream>
 #include "Game.h"
 #include "GlobalInfo.h"
 #include "Score.h"
+
+using namespace std;
 
 //prototypes
 void closeAll();
@@ -27,7 +31,40 @@ int main( int argc, char* argv[] )
 	Score lastScore;
 	char scSt[6] = "";
 
-	Score highScores[3];
+	vector<Score> highScores = vector<Score>();
+	for (int i = 0; i < 3; i++) {
+		highScores.emplace_back(Score());
+	}
+
+	fstream hsFile;
+
+	hsFile.open("highScores.txt", ios_base::in);
+	if (hsFile.is_open()) {
+		for (int i = 0; i < 3; i++) {
+			int tempScore = 0;
+			hsFile >> tempScore;
+
+			int tempMin = 0;
+			hsFile >> tempMin;
+
+			int tempSec = 0;
+			hsFile >> tempSec;
+
+			highScores[i].Set(tempScore, tempMin, tempSec);
+		}
+	} else {
+		hsFile.open("highScores.txt", ios_base::out);
+		if (hsFile.is_open()) {
+			for (int i = 0; i < 3; i++) {
+				highScores[i].Set(0, 0, 0);
+				hsFile << 0 << " ";
+				hsFile << 0 << " ";
+				hsFile << 0 << "\n";
+			}
+		} else {
+			cout << "Highscore creation error";
+		}
+	}
 
     //Game Loop
     do
@@ -55,7 +92,7 @@ int main( int argc, char* argv[] )
 
 		case GAMEPLAY:
 			game = new Game();
-			lastScore = (*game).Start(); //-> game will contain it's own loop so anything beyond this is after the game loop has ended.
+			lastScore = (*game).Start(); //-> game contains it's own loop so anything beyond this is after the game loop has ended.
 			//game has exited
 			(*game).~Game();
 			currentState = SCORE_DISPLAY;
