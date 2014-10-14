@@ -141,13 +141,13 @@ int Game::LoadContent() {//called before start
 	return 0;
 }
 
-void Game::Start() {
+Score Game::Start() {
 	Initalize();
 	LoadContent();
 
 	do {
 		//debug inputs
-		if (IsKeyDown('M')) {
+		if (IsKeyDown(256)) {
 			gamePlaying = false;
 		}
 
@@ -156,4 +156,9 @@ void Game::Start() {
 
 		ClearScreen();
 	} while (gamePlaying && !FrameworkUpdate());
+
+	Score score;
+	score.Set(GlobalInfo::playerPoints, timeKeeper.getMin(), timeKeeper.getOnlySecs());
+
+	return score;
 }

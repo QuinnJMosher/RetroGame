@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Player.h"
 #include "TimeTracker.h"
+#include "Score.h"
 
 #ifndef _Game_h_
 #define _Game_h_
@@ -11,7 +12,7 @@ public:
 	Game();
 	~Game();
 
-	void Start();
+	Score Start();
 
 	std::vector<Entity*> entities;
 

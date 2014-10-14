@@ -100,6 +100,7 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\Point.cpp" />
+    <ClCompile Include="source\Score.cpp" />
     <ClCompile Include="source\TimeTracker.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -112,11 +113,8 @@
     <ClInclude Include="include\GlobalInfo.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\Point.h" />
+    <ClInclude Include="include\Score.h" />
     <ClInclude Include="include\TimeTracker.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
