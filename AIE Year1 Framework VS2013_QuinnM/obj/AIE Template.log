@@ -1,43 +1,32 @@
-﻿Build started 10/13/2014 5:45:48 PM.
+﻿Build started 10/14/2014 2:15:25 PM.
      1>Project "C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\AIE Template.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Game.cpp source\TimeTracker.cpp
-         TimeTracker.cpp
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\timetracker.cpp(42): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Score.cpp
+         Score.cpp
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(13): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(16): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(19): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(25): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(937) : see declaration of 'itoa'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\timetracker.cpp(43): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(27): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\timetracker.cpp(45): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\timetracker.cpp(49): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\timetracker.cpp(51): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(29): warning C4172: returning address of local variable or temporary
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(39): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(937) : see declaration of 'itoa'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\timetracker.cpp(52): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(40): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\timetracker.cpp(54): warning C4172: returning address of local variable or temporary
-         Game.cpp
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\globalinfo.h(20): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(16): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(29): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(33): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(84): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(89): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(93): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(103): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(110): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(111): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(115): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(116): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(120): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(121): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(125): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\game.cpp(126): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         Generating Code...
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(42): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(46): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(48): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(49): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\score.cpp(51): warning C4172: returning address of local variable or temporary
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\AIE Template_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:./libs AIE_1st_Year_Framework_d.lib kernel32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\AIE Template_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\AIE Template_d.lib" /MACHINE:X86 obj\BigEnemy.obj
          obj\Bullet.obj
@@ -49,6 +38,7 @@
          obj\main.obj
          obj\Player.obj
          obj\Point.obj
+         obj\Score.obj
          obj\TimeTracker.obj
          AIE_1st_Year_Framework_d.lib(SOIL.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
      1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
@@ -83,4 +73,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.10
+Time Elapsed 00:00:01.31
