@@ -1,4 +1,6 @@
 #include "Entity.h"
+#include "Player.h"
+#include "Bullet.h"
 
 #ifndef _Enemy_h_
 #define _Enemy_h_

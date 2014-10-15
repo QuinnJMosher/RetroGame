@@ -33,24 +33,14 @@ void Game::Update(float in_deltaTime) {
 
 		if (!(*entities[i]).IsAlive()) {//check if it is still alive
 
-			switch ((*entities[i]).type)//add points/remove lives
+			if ((*entities[i]).type == 'P')//remove lives if needed
 			{
-			case 'P'://consider changing to an if statement
 				if (GlobalInfo::playerLives > 0) {
-					entities.emplace_back(new Player());
+					entities.emplace_back(new Player());//and make a new player if there are lives to be spent
 					GlobalInfo::playerLives--;
 				} else {
 					gamePlaying = false;
 				}
-				break;
-			case 'E':
-				//points applied in Isalive Meathod
-				break;
-			case 'B':
-				//no points
-				break;
-			default:
-				break;
 			}
 
 			entities.erase(entities.begin() + i);//remove if "dead"
@@ -58,7 +48,7 @@ void Game::Update(float in_deltaTime) {
 
 		}
 
-		if (i >= 0) {
+		if (i >= 0) {//prevent index oob err if the owner of the bullet had alredy been removed
 			if (addBullet) {//add a bullet if needed
 				entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
 			}
@@ -66,11 +56,11 @@ void Game::Update(float in_deltaTime) {
 	}
 
 	//add enemies (currently random)
-	if (rand() < ((timeKeeper.getMin() + 1) * 100)) {
-		int addType = rand() % 100;
+	if (rand() < ((timeKeeper.getMin() + 1) * 100)) {//decide to spawn an enemy or not
+		int addType = rand() % 100;//decide what the enemie's type will be
 		if (addType < 20 && timeKeeper.getOnlySecs() > 20) {// small + fase enemies
 
-			int numSmallEnimies = rand() % 6;
+			int numSmallEnimies = rand() % 6;//decide how many to be spawned
 			for (int k = 0; k < numSmallEnimies; k++) {
 				entities.emplace_back(new FastEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
 			}
@@ -86,7 +76,7 @@ void Game::Update(float in_deltaTime) {
 		}
 	}
 
-	if (GlobalInfo::nexLifePoints >= 2000) {
+	if (GlobalInfo::nexLifePoints >= 2000) {//check to see if a life should be given
 		GlobalInfo::nexLifePoints -= 2000;
 		GlobalInfo::playerLives++;
 	}
@@ -124,7 +114,6 @@ void Game::Draw() {
 }
 
 int Game::Initalize() {//called before loadcontent
-	//create player in vector, ect
 	GlobalInfo::playerPoints = 0;
 	GlobalInfo::playerLives = 2;
 	timeKeeper.reset();
@@ -134,7 +123,7 @@ int Game::Initalize() {//called before loadcontent
 }
 
 int Game::LoadContent() {//called before start
-	//open enemyscript, create sprites
+	//sprites are loaded on creation
 	return 0;
 }
 
@@ -143,7 +132,7 @@ Score Game::Start() {
 	LoadContent();
 
 	do {
-		//debug inputs
+		//quick exit
 		if (IsKeyDown(256)) {
 			gamePlaying = false;
 		}
@@ -154,7 +143,7 @@ Score Game::Start() {
 		ClearScreen();
 	} while (gamePlaying && !FrameworkUpdate());
 
-	Score score;
+	Score score;//create a score to be read at endgame and compared to the current highscores
 	score.Set(GlobalInfo::playerPoints, timeKeeper.getMin(), timeKeeper.getOnlySecs());
 
 	return score;

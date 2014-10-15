@@ -1,4 +1,6 @@
 #include "Bullet.h"
+#include "Enemy.h"
+#include "Player.h"
 
 const char* Bullet::BULLET_TEXTURE_PATH = "./images/invaders/invaders_7_01.png";
 const float Bullet::BULLET_WIDTH = 20;
@@ -39,8 +41,10 @@ bool Bullet::IsAlive() {
 }
 
 void Bullet::Collide(Entity &other) {
+		//create pointers for casting later
 		Enemy *enemyPtr = NULL;
 		Player *playerPtr = NULL;
+
 		switch (other.type) {
 
 		case 'P'://player
@@ -85,6 +89,7 @@ void Bullet::Hit() {
 }
 
 bool Bullet::Update(float in_deltaTime) {
+	//move
 	position.x += (xVelocity * in_deltaTime);
 	position.y += (yVelocity * in_deltaTime);
 
