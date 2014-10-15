@@ -31,7 +31,7 @@ void(*CurrentFunction)() = MainMenu;
 
 int main( int argc, char* argv[] )
 {	
-	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, "Retro Game");
+	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, "Space Shooter");
     
     SetBackgroundColour(SColour(0, 0, 0, 255));
 
@@ -91,6 +91,8 @@ void ReadyHighScores() {
 }
 
 void MainMenu() {
+	DrawString("Space Shooter", GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.66f);
+
 	//show menu
 	DrawString("press \"Enter\" to start game", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.16f);
 	DrawString("press \"h\" to view high scores", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
