@@ -1,6 +1,4 @@
 #include "TimeTracker.h"
-#include <cstring>
-#include <cstdlib>
 
 TimeTracker::TimeTracker() {
 	this->miliseconds = 0.0f;

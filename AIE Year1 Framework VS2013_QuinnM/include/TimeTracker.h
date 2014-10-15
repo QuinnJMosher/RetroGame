@@ -1,3 +1,6 @@
+#include <cstring>
+#include <cstdlib>
+
 #ifndef _TimeTracker_h_
 #define _TimeTracker_h_
 

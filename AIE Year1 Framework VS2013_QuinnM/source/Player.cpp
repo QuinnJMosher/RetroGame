@@ -1,9 +1,6 @@
 #include "Player.h"
-#include "GlobalInfo.h"
-#include "AIE.h"
 #include "Enemy.h"
 #include "Bullet.h"
-#include <typeinfo> 
 
 const char* Player::PLAYER_TEXTURE_PATH = "./images/invaders/invaders_4_00.png";
 const float Player::PLAYER_WIDTH = 40.f;
@@ -103,7 +100,7 @@ void Player::Move(float in_deltaTime) {
 
 void Player::Fire() {
 	//(*GlobalInfo::currentGame).entities.emplace_back(new Bullet(position.x, position.y,0,300,bullletDammage, OwnerId));
-	
+	//used a diferent meathod to do this
 }
 
 void Player::Collide(Entity &other) {//override

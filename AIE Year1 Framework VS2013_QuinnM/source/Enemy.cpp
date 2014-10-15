@@ -1,7 +1,5 @@
 #include "Enemy.h"
 #include "GlobalInfo.h"
-#include "Player.h"
-#include "Bullet.h"
 #include "AIE.h"
 
 //Enemy constants
@@ -51,6 +49,7 @@ void Enemy::Move(float in_deltaTime){
 bool Enemy::IsAlive() {//override
 	if (hitPoints <= 0) {
 		GlobalInfo::playerPoints += pointValue;
+		GlobalInfo::nexLifePoints += pointValue;
 		return false;
 	} else if (position.y < 0 - width) {
 		return false;
@@ -72,6 +71,7 @@ bool Enemy::TakeDamage(unsigned int in_dammage) {
 
 void Enemy::Collide(Entity &other) {//override
 	//we already know we hit somthing if this is called
+	//pointers for casting later
 	Player *playerPtr = NULL;
 	Bullet *bulletPtr = NULL;
 	switch (other.type) {

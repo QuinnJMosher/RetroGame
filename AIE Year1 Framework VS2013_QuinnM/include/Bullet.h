@@ -1,4 +1,6 @@
 #include "Entity.h"
+#include "GlobalInfo.h"
+#include "AIE.h"
 
 #ifndef _Bullet_h_
 #define _Bullet_h_

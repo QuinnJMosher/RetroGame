@@ -9,37 +9,51 @@
 using namespace std;
 
 //prototypes
-void closeAll();
-
-enum GameState {
-	MAIN_MENU,
-	GAMEPLAY,
-	SCORE_DISPLAY,
-	HIGH_SCORES,
-	END
-};
+void ReadyHighScores();
+void MainMenu();
+void StartGame();
+void ScoreDisplay();
+void HighScores();
+void End();
 
 bool hasScoreChecked = false;
 bool newHighScore = false;
 
+bool continuePlay = true;
+
+Game *game;
+Score lastScore;
+
+vector<Score> highScores = vector<Score>();
+fstream hsFile;
+
+void(*CurrentFunction)() = MainMenu;
+
 int main( int argc, char* argv[] )
 {	
-	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, "Retro Game");
+	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, "Space Shooter");
     
     SetBackgroundColour(SColour(0, 0, 0, 255));
-	bool continuePlay = true;
-	GameState currentState = MAIN_MENU;
-	Game *game;
 
-	Score lastScore;
-	char scSt[6] = "";
+	ReadyHighScores();
 
-	vector<Score> highScores = vector<Score>();
+    //Game Loop
+    do
+	{
+		CurrentFunction();
+		ClearScreen();
+
+    } while(!FrameworkUpdate() && continuePlay);
+
+    Shutdown();
+
+    return 0;
+}
+
+void ReadyHighScores() {
 	for (int i = 0; i < 3; i++) {
 		highScores.emplace_back(Score());
 	}
-
-	fstream hsFile;
 
 	hsFile.open("highScores.txt", ios_base::in);
 	if (hsFile.is_open()) {
@@ -55,7 +69,8 @@ int main( int argc, char* argv[] )
 
 			highScores[i].Set(tempScore, tempMin, tempSec);
 		}
-	} else {
+	}
+	else {
 		hsFile.open("highScores.txt", ios_base::out);
 		if (hsFile.is_open()) {
 			for (int i = 0; i < 3; i++) {
@@ -64,7 +79,8 @@ int main( int argc, char* argv[] )
 				hsFile << 0 << " ";
 				hsFile << 0 << "\n";
 			}
-		} else {
+		}
+		else {
 			cout << "Highscore creation error";
 		}
 	}
@@ -72,159 +88,139 @@ int main( int argc, char* argv[] )
 	hsFile.sync();
 	hsFile.close();
 	hsFile.clear();
-
-    //Game Loop
-    do
-	{
-		switch (currentState) {
-		case MAIN_MENU: 
-			//show menu
-			DrawString("press \"Enter\" to start game", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.16f);
-			DrawString("press \"h\" to view high scores", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
-			DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
-
-			//input
-			if (IsKeyDown(257)) {
-				currentState = GAMEPLAY;
-			}
-			if (IsKeyDown('H')) {
-				currentState = HIGH_SCORES;
-			}
-			if (IsKeyDown('E')) {
-				currentState = END;
-			}
-
-
-			break;
-
-		case GAMEPLAY:
-			hasScoreChecked = false;
-			newHighScore = false;
-			game = new Game();
-			lastScore = (*game).Start(); //-> game contains it's own loop so anything beyond this is after the game loop has ended.
-			//game has exited
-			(*game).~Game();
-			currentState = SCORE_DISPLAY;
-			break;
-
-		case SCORE_DISPLAY:
-			//draw heading
-			DrawString("Score:", GlobalInfo::SCREEN_MAX_X * 0.25f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
-			DrawString("Time:", GlobalInfo::SCREEN_MAX_X * 0.60f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
-
-			//draw score/time
-			
-			strcpy(scSt, lastScore.ToStringPoints());
-			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
-
-			strcpy(scSt, lastScore.ToStringTime());
-			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
-
-			//draw "New Highscore" if score is a highscore
-			if (!hasScoreChecked) {
-				for (int i = 0; i < 3; i++) {
-					if (lastScore.CompareTo(highScores[i]) >= 0) {
-						newHighScore = true;
-						highScores.insert(highScores.begin() + i, lastScore);
-						highScores.erase(highScores.begin() + 3);
-						break;
-					}
-				}
-				hasScoreChecked = true;
-			}
-
-			if (newHighScore) {
-				DrawString("New High Score!", GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
-			}
-
-			//draw advance info
-			DrawString("press \"m\" to return to menu", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
-			DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
-
-			if (IsKeyDown('M')) {
-				currentState = MAIN_MENU;
-			}
-			if (IsKeyDown('E')) {
-				currentState = END;
-			}
-
-			break;
-
-		case HIGH_SCORES:
-			//display head
-			DrawString("Score:", GlobalInfo::SCREEN_MAX_X * 0.25f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
-			DrawString("Time:", GlobalInfo::SCREEN_MAX_X * 0.60f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
-
-			//display scores
-
-			///score1
-			strcpy(scSt, highScores[0].ToStringPoints());
-			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
-			strcpy(scSt, highScores[0].ToStringTime());
-			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
-
-			///score2
-			strcpy(scSt, highScores[1].ToStringPoints());
-			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
-			strcpy(scSt, highScores[1].ToStringTime());
-			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
-
-			///score3
-			strcpy(scSt, highScores[2].ToStringPoints());
-			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
-			strcpy(scSt, highScores[2].ToStringTime());
-			DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
-
-			//draw advance info
-			DrawString("press \"m\" to return to menu", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
-			DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
-
-			if (IsKeyDown('M')) {
-				currentState = MAIN_MENU;
-			}
-			if (IsKeyDown('E')) {
-				currentState = END;
-			}
-
-			break;
-
-		case END:
-				hsFile.open("highScores.txt", ios_base::out);
-			if (hsFile.is_open()) {
-				for (int i = 0; i < 3; i++) {
-					hsFile << highScores[i].points << " ";
-					hsFile << highScores[i].min << " ";
-					hsFile << highScores[i].sec << "\n";
-				}
-			} else {
-				cout << "Highscore write error";
-			}
-
-			hsFile.sync();
-			hsFile.close();
-			hsFile.clear();
-
-			continuePlay = false;
-			break;
-
-		default:
-			throw "reached default case";
-			continuePlay = false;
-			break;
-
-		}
-
-		ClearScreen();
-
-    } while(!FrameworkUpdate() && continuePlay);
-
-	closeAll();
-    Shutdown();
-
-    return 0;
 }
 
-void closeAll() {
-	//destroy evrything
-	//EVRYTHING!!!
+void MainMenu() {
+	DrawString("Space Shooter", GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.66f);
+
+	//show menu
+	DrawString("press \"Enter\" to start game", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.16f);
+	DrawString("press \"h\" to view high scores", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
+	DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+
+	//input
+	if (IsKeyDown(257)) {
+		CurrentFunction = StartGame;
+	}
+	if (IsKeyDown('H')) {
+		CurrentFunction = HighScores;
+	}
+	if (IsKeyDown('E')) {
+		CurrentFunction = End;
+	}
+
+}
+
+void StartGame() {
+	hasScoreChecked = false;
+	newHighScore = false;
+	game = new Game();
+	lastScore = (*game).Start(); //-> game contains it's own loop so anything beyond this is after the game loop has ended.
+	//game has exited
+	(*game).~Game();
+	CurrentFunction = ScoreDisplay;
+}
+
+void ScoreDisplay() {
+	char scSt[6] = "";
+
+	//draw heading
+	DrawString("Score:", GlobalInfo::SCREEN_MAX_X * 0.25f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
+	DrawString("Time:", GlobalInfo::SCREEN_MAX_X * 0.60f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
+
+	//draw score/time
+
+	strcpy(scSt, lastScore.ToStringPoints());
+	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
+
+	strcpy(scSt, lastScore.ToStringTime());
+	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
+
+	//draw "New Highscore" if score is a highscore
+	if (!hasScoreChecked) {
+		for (int i = 0; i < 3; i++) {
+			if (lastScore.CompareTo(highScores[i]) >= 0) {
+				newHighScore = true;
+				highScores.insert(highScores.begin() + i, lastScore);
+				highScores.erase(highScores.begin() + 3);
+				break;
+			}
+		}
+		hasScoreChecked = true;
+	}
+
+	if (newHighScore) {
+		DrawString("New High Score!", GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
+	}
+
+	//draw advance info
+	DrawString("press \"m\" to return to menu", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
+	DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+
+	if (IsKeyDown('M')) {
+		CurrentFunction = MainMenu;
+	}
+	if (IsKeyDown('E')) {
+		CurrentFunction = End;
+	}
+}
+
+void HighScores() {
+	char scSt[6] = "";
+
+	//display head
+	DrawString("Score:", GlobalInfo::SCREEN_MAX_X * 0.25f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
+	DrawString("Time:", GlobalInfo::SCREEN_MAX_X * 0.60f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
+
+	//display scores
+
+	///score1
+	strcpy(scSt, highScores[0].ToStringPoints());
+	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
+	strcpy(scSt, highScores[0].ToStringTime());
+	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.85f);
+
+	///score2
+	strcpy(scSt, highScores[1].ToStringPoints());
+	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
+	strcpy(scSt, highScores[1].ToStringTime());
+	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
+
+	///score3
+	strcpy(scSt, highScores[2].ToStringPoints());
+	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
+	strcpy(scSt, highScores[2].ToStringTime());
+	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
+
+	//draw advance info
+	DrawString("press \"m\" to return to menu", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
+	DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+
+	if (IsKeyDown('M')) {
+		CurrentFunction = MainMenu;
+	}
+	if (IsKeyDown('E')) {
+		CurrentFunction = End;
+	}
+
+}
+
+void End() {
+	hsFile.open("highScores.txt", ios_base::out);
+	if (hsFile.is_open()) {
+		for (int i = 0; i < 3; i++) {
+			hsFile << highScores[i].points << " ";
+			hsFile << highScores[i].min << " ";
+			hsFile << highScores[i].sec << "\n";
+		}
+	}
+	else {
+		cout << "Highscore write error";
+	}
+
+	hsFile.sync();
+	hsFile.close();
+	hsFile.clear();
+
+	continuePlay = false;
 }

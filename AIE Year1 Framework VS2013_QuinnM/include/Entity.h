@@ -1,4 +1,6 @@
 #include "Point.h"
+#include "Point.h"
+#include "AIE.h"
 
 #ifndef _Entity_h_
 #define _Entity_h_

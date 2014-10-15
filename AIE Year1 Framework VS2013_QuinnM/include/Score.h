@@ -1,3 +1,6 @@
+#include <cstring>
+#include <cstdlib>
+
 #ifndef _Score_h_
 #define _Score_h_
 

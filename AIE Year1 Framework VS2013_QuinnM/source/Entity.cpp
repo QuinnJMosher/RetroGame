@@ -1,6 +1,4 @@
 #include "Entity.h"
-#include "Point.h"
-#include "AIE.h"
 
 int Entity::nextOwnerId = 0;
 
