@@ -1,7 +1,7 @@
 #include "GlobalInfo.h"
 
-const int GlobalInfo::SCREEN_MAX_X = 600;
-const int GlobalInfo::SCREEN_MAX_Y = 700;
+const float GlobalInfo::SCREEN_MAX_X = 600;
+const float GlobalInfo::SCREEN_MAX_Y = 700;
 
 unsigned int GlobalInfo::globalPlayerHealth = 0;
 unsigned int GlobalInfo::playerPoints = 0;
@@ -25,7 +25,7 @@ char* GlobalInfo::pointsToString() {
 	if (playerPoints > 9999) {
 		strcpy(pointsChar, "9999+");
 	} else {
-		itoa(playerPoints, pointsChar, 10);
+		_itoa(playerPoints, pointsChar, 10);
 	}
 
 	strcat(out, pointsChar);
@@ -47,7 +47,7 @@ char* GlobalInfo::healthToString() {
 	if (globalPlayerHealth > 999) {
 		strcpy(healthChar, "999+");
 	} else {
-		itoa(globalPlayerHealth, healthChar, 10);
+		_itoa(globalPlayerHealth, healthChar, 10);
 	}
 
 	strcat(out, healthChar);
@@ -63,7 +63,7 @@ char* GlobalInfo::livesToString() {
 		strcpy(livesChar, "9+");
 	}
 	else {
-		itoa(playerLives, livesChar, 10);
+		_itoa_s(playerLives, livesChar, 10);
 	}
 
 	strcat(out, livesChar);

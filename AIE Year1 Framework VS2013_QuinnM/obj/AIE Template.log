@@ -1,25 +1,117 @@
-﻿Build started 10/20/2014 3:38:15 PM.
+﻿Build started 10/21/2014 10:56:57 AM.
      1>Project "C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\AIE Template.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Game.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\BigEnemy.cpp source\Bullet.cpp source\Enemy.cpp source\Entity.cpp source\FastEnemy.cpp source\Game.cpp source\GlobalInfo.cpp source\main.cpp source\Player.cpp source\Point.cpp source\Score.cpp source\TimeTracker.cpp
+         BigEnemy.cpp
+         Bullet.cpp
+         Enemy.cpp
+         Entity.cpp
+     1>source\Entity.cpp(30): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         FastEnemy.cpp
          Game.cpp
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\include\GlobalInfo.h(20): warning C4091: 'static ' : ignored on left of 'GlobalInfo' when no variable is declared
      1>source\Game.cpp(7): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>source\Game.cpp(65): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>source\Game.cpp(70): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>source\Game.cpp(74): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>source\Game.cpp(97): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>source\Game.cpp(98): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>source\Game.cpp(98): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>source\Game.cpp(102): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>source\Game.cpp(99): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\Game.cpp(103): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>source\Game.cpp(103): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>source\Game.cpp(107): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>source\Game.cpp(104): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\Game.cpp(108): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>source\Game.cpp(108): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>source\Game.cpp(112): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>source\Game.cpp(109): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\Game.cpp(113): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>source\Game.cpp(113): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>source\Game.cpp(114): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+         GlobalInfo.cpp
+     1>source\GlobalInfo.cpp(15): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\GlobalInfo.cpp(17): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\GlobalInfo.cpp(19): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\GlobalInfo.cpp(26): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\GlobalInfo.cpp(28): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(481) : see declaration of '_itoa'
+     1>source\GlobalInfo.cpp(31): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\GlobalInfo.cpp(33): warning C4172: returning address of local variable or temporary
+     1>source\GlobalInfo.cpp(40): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\GlobalInfo.cpp(42): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\GlobalInfo.cpp(48): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\GlobalInfo.cpp(50): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(481) : see declaration of '_itoa'
+     1>source\GlobalInfo.cpp(53): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\GlobalInfo.cpp(55): warning C4172: returning address of local variable or temporary
+     1>source\GlobalInfo.cpp(63): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\GlobalInfo.cpp(69): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\GlobalInfo.cpp(71): warning C4172: returning address of local variable or temporary
+         main.cpp
+     1>source\main.cpp(34): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(94): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(97): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(98): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(99): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(128): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(129): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(133): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\main.cpp(134): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(136): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\main.cpp(137): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(153): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(157): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(158): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(172): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(173): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(178): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\main.cpp(179): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(180): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\main.cpp(181): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(184): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\main.cpp(185): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(186): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\main.cpp(187): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(190): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\main.cpp(191): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(192): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>source\main.cpp(193): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(196): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>source\main.cpp(197): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+         Player.cpp
+     1>source\Player.cpp(217): warning C4172: returning address of local variable or temporary
+         Point.cpp
+         Score.cpp
+     1>source\Score.cpp(27): warning C4172: returning address of local variable or temporary
+     1>source\Score.cpp(49): warning C4172: returning address of local variable or temporary
+         TimeTracker.cpp
+     1>source\TimeTracker.cpp(40): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(481) : see declaration of '_itoa'
+     1>source\TimeTracker.cpp(41): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\TimeTracker.cpp(43): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\TimeTracker.cpp(47): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\TimeTracker.cpp(49): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(481) : see declaration of '_itoa'
+     1>source\TimeTracker.cpp(50): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : see declaration of 'strcat'
+     1>source\TimeTracker.cpp(52): warning C4172: returning address of local variable or temporary
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\AIE Template.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:./libs AIE_1st_Year_Framework.lib kernel32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\AIE Template.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\AIE Template.lib" /MACHINE:X86 /SAFESEH obj\BigEnemy.obj
          obj\Bullet.obj
@@ -63,4 +155,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.30
+Time Elapsed 00:00:03.32

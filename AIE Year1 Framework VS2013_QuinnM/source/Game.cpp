@@ -62,16 +62,17 @@ void Game::Update(float in_deltaTime) {
 
 			int numSmallEnimies = rand() % 6;//decide how many to be spawned
 			for (int k = 0; k < numSmallEnimies; k++) {
-				entities.emplace_back(new FastEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+				//((rand() % 100) / 100) * GlobalInfo::SCREEN_MAX_X
+				entities.emplace_back(new FastEnemy(((rand() % 100) / 100.f) * GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
 			}
 
 		} else if (addType < 25 && timeKeeper.getOnlySecs() > 30) {//large + slow enemy
 
-			entities.emplace_back(new BigEnemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+			entities.emplace_back(new BigEnemy(((rand() % 100) / 100.f) * GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
 
 		} else {//standard enemy
 
-			entities.emplace_back(new Enemy(rand() % GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
+			entities.emplace_back(new Enemy(((rand() % 100) / 100.f) * GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y));
 
 		}
 	}

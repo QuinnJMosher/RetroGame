@@ -8,21 +8,21 @@ char* Score::ToStringPoints() {
 		char temp[5] = "";
 
 		if (points < 1000) {
-			strcat(temp, "0");
+			strcat_s(temp, "0");
 
 			if (points < 100) {
-				strcat(temp, "0");
+				strcat_s(temp, "0");
 
 				if (points < 10) {
-					strcat(temp, "0");
+					strcat_s(temp, "0");
 				}
 			}
 		}
 
 		char pointChar[5] = "";
-		itoa(points, pointChar, 10);
+		_itoa_s(points, pointChar, 10);
 
-		strcat(temp, pointChar);
+		strcat_s(temp, pointChar);
 
 		return temp;
 	}
@@ -34,17 +34,17 @@ char* Score::ToStringTime() {
 		char out[5] = "";
 
 		char minChar[2] = "";
-		itoa(min, minChar, 10);
-		strcat(out, minChar);
+		_itoa_s(min, minChar, 10);
+		strcat_s(out, minChar);
 
-		strcat(out, ":");
+		strcat_s(out, ":");
 
 		char secChar[3] = "";
 		if (sec < 10) {
-			strcat(out, "0");
+			strcat_s(out, "0");
 		}
-		itoa(sec, secChar, 10);
-		strcat(out, secChar);
+		_itoa_s(sec, secChar, 10);
+		strcat_s(out, secChar);
 
 		return out;
 	}
@@ -66,13 +66,11 @@ int Score::CompareTo(Score other) {
 
 			return other.sec - this->sec;
 
-		}
-		else {
+		} else {
 			return other.min - this->min;
 		}
 
-	}
-	else {
+	} else {
 		return this->points - other.points;
 	}
 }

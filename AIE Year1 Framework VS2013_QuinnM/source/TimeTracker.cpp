@@ -37,7 +37,7 @@ char* TimeTracker::toString() {
 		char out[8] = "T: ";
 
 		char minChar[2] = "";
-		itoa(minutes, minChar, 10);
+		_itoa(minutes, minChar, 10);
 		strcat(out, minChar);
 
 		strcat(out, ":");
@@ -46,7 +46,7 @@ char* TimeTracker::toString() {
 		if (seconds < 10) {
 			strcat(out, "0");
 		}
-		itoa(seconds, secChar, 10);
+		_itoa(seconds, secChar, 10);
 		strcat(out, secChar);
 
 		return out;
