@@ -17,9 +17,6 @@ public:
 	bool Update(float in_deltaTime);
 	void Draw();
 
-	//assignment operator
-	Player& operator=(Player other);
-
 	void Collide(Entity &other);//preform actions to things that have been colided with (called ON conlide)
 	void Move(float in_deltaTime);//preform the movement portion of update
 	void Fire();//create a bullet

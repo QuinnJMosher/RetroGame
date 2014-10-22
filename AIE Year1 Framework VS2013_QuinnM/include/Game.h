@@ -27,10 +27,7 @@ private:
 	void Update(float in_deltaTime);
 	void Draw();
 	int Initalize();
-	int LoadContent();
 	
-
-	//EnemyScript curentScript;
 	TimeTracker timeKeeper;
 	bool gamePlaying;
 };
