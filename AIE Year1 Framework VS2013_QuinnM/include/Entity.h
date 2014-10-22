@@ -12,7 +12,7 @@ public:
 	Entity(float in_x, float in_y, float in_width, float in_height, const char* in_filePath, char in_type, int in_owner);
 
 	void BuildSprite(const char* in_filePath);
-	bool hasColidedWith(Entity &other);
+	virtual bool hasColidedWith(Entity &other);
 	virtual ~Entity();
 
 	virtual bool Update(float in_deltaTime) = 0;
