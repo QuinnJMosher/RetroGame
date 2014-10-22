@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "Enemy.h"
-#include "Bullet.h"
 
 const char* Player::PLAYER_TEXTURE_PATH = "./images/invaders/invaders_4_00.png";
 const float Player::PLAYER_WIDTH = 40.f;
@@ -31,9 +30,13 @@ Player::Player() : Entity(PLAYER_START_X, PLAYER_START_Y, PLAYER_WIDTH, PLAYER_H
 
 	this->immunityTime = 1.25f;
 	this->firePauseTime = 1.25f;
+
+	bullets = std::vector<Bullet*>();
 }
 
-Player::~Player() { }
+Player::~Player() { 
+	bullets.~vector();
+}
 
 bool Player::Update(float in_deltaTime)  {//override
 
@@ -50,7 +53,16 @@ bool Player::Update(float in_deltaTime)  {//override
 		if (IsKeyDown(inputKeyFire)) {
 			//Fire();//add a bullet to the entity list in front of player (create an emitter point?)
 			firePauseTime = FIRE_INTERVAL;
-			return true;
+			Fire();
+			//return true;
+		}
+	}
+
+	for (int i = 0; i < bullets.size(); i++) {
+		if ((*bullets[i]).IsAlive()) {
+			(*bullets[i]).Update(in_deltaTime);
+		} else {
+			bullets.erase(bullets.begin() + i);
 		}
 	}
 
@@ -99,8 +111,7 @@ void Player::Move(float in_deltaTime) {
 }
 
 void Player::Fire() {
-	//(*GlobalInfo::currentGame).entities.emplace_back(new Bullet(position.x, position.y,0,300,bullletDammage, OwnerId));
-	//used a diferent meathod to do this
+	bullets.emplace_back(new Bullet(position.x, position.y,0,600,bullletDammage, OwnerId));
 }
 
 void Player::Collide(Entity &other) {//override
@@ -147,6 +158,10 @@ void Player::Collide(Entity &other) {//override
 }
 
 void Player::Draw() {//Override
+	for (int i = 0; i < bullets.size(); i++) {
+		(*bullets[i]).Draw();
+	}
+
 	DrawSprite(spriteID);
 }
 
@@ -215,4 +230,14 @@ Player& Player::operator=(Player other) {
 	height = other.height;
 	spriteID = other.spriteID;
 	return other;
+}
+
+bool Player::hasColidedWith(Entity &other) {
+	for (int i = 0; i < bullets.size(); i++) {
+		if ((*bullets[i]).hasColidedWith(other)) {//check weather any bullet has colided
+			(*bullets[i]).Collide(other);//colide
+		}
+	}
+
+	return this->Entity::hasColidedWith(other);
 }

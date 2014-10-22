@@ -19,7 +19,7 @@ void Game::Update(float in_deltaTime) {
 	//loop through vector
 	for (unsigned int i = 0; i < entities.size(); i++) {
 
-		bool addBullet = (*entities[i]).Update(in_deltaTime);//call update (check if a bullet needs to be created)
+		(*entities[i]).Update(in_deltaTime);//call update (check if a bullet needs to be created)
 
 		for (unsigned int j = i + 1; j < entities.size(); j++) {//loop through the rest of the array
 
@@ -48,11 +48,6 @@ void Game::Update(float in_deltaTime) {
 
 		}
 
-		if (i >= 0 && entities[i] != NULL) {//prevent index oob err if the owner of the bullet had alredy been removed
-			if (addBullet) {//add a bullet if needed
-				entities.emplace_back(new Bullet((*entities[i]).position.x, (*entities[i]).position.y, (*entities[i]).bullletSpeedX, (*entities[i]).bullletSpeedY, (*entities[i]).bullletDammage, (*entities[i]).OwnerId));
-			}
-		}
 	}
 
 	//add enemies (currently random)

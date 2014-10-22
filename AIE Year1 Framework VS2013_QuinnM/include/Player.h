@@ -1,7 +1,9 @@
 #include "Entity.h"
+#include "Bullet.h"
 #include "GlobalInfo.h"
 #include "AIE.h"
 #include <typeinfo> 
+#include <vector>
 
 #ifndef _Player_h_
 #define _Player_h_
@@ -29,6 +31,8 @@ public:
 	void ChangeVelocity(float in_xVelocity, float in_yVelocity);//change the forced movement values
 	void ChangeSpeed(float in_xSpeed, float in_ySpeed);//change the speed of player-inputed movement
 
+	bool hasColidedWith(Entity &other);//overide
+
 private:
 	//input key vars
 	char inputKeyUp;
@@ -54,6 +58,9 @@ private:
 	//interval constants
 	const float IMUNITY_INTERVAL = 1.f;
 	const float FIRE_INTERVAL = 0.1f;
+
+	//bullet container
+	std::vector<Bullet*> bullets;
 
 	//player constants
 	static const char* PLAYER_TEXTURE_PATH;
