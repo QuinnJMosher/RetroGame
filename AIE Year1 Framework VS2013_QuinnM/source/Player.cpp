@@ -204,34 +204,6 @@ void Player::ChangeSpeed(float in_xSpeed, float in_ySpeed) {
 	ySpeed = in_ySpeed;
 }
 
-Player& Player::operator=(Player other) {
-	inputKeyUp = other.inputKeyUp;
-	inputKeyDown = other.inputKeyDown;
-	inputKeyLeft = other.inputKeyLeft;
-	inputKeyRight = other.inputKeyRight;
-	inputKeyFire = other.inputKeyFire;
-
-	xVelocity = other.xVelocity;
-	yVelocity = other.xVelocity;
-
-	xSpeed = xSpeed;
-	ySpeed = ySpeed;
-
-	maxHitPoints = other.maxHitPoints;
-	hitPoints = other.hitPoints;
-
-	bullletDammage = other.bullletDammage;
-
-	immunityTime = other.immunityTime;
-	firePauseTime = other.firePauseTime;
-
-	position = other.position;
-	width = other.width;
-	height = other.height;
-	spriteID = other.spriteID;
-	return other;
-}
-
 bool Player::hasColidedWith(Entity &other) {
 	for (int i = 0; i < bullets.size(); i++) {
 		if ((*bullets[i]).hasColidedWith(other)) {//check weather any bullet has colided

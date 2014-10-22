@@ -118,14 +118,9 @@ int Game::Initalize() {//called before loadcontent
 	return 0;
 }
 
-int Game::LoadContent() {//called before start
-	//sprites are loaded on creation
-	return 0;
-}
 
 Score Game::Start() {
 	Initalize();
-	LoadContent();
 
 	do {
 		//quick exit
