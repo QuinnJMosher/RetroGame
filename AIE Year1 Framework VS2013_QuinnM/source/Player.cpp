@@ -205,9 +205,11 @@ void Player::ChangeSpeed(float in_xSpeed, float in_ySpeed) {
 }
 
 bool Player::hasColidedWith(Entity &other) {
-	for (int i = 0; i < bullets.size(); i++) {
-		if ((*bullets[i]).hasColidedWith(other)) {//check weather any bullet has colided
-			(*bullets[i]).Collide(other);//colide
+	if (other.type != 'P') {
+		for (int i = 0; i < bullets.size(); i++) {
+			if ((*bullets[i]).hasColidedWith(other)) {//check weather any bullet has colided
+				(*bullets[i]).Collide(other);//colide
+			}
 		}
 	}
 

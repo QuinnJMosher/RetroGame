@@ -21,7 +21,7 @@ void Game::Update(float in_deltaTime) {
 
 		(*entities[i]).Update(in_deltaTime);//call update (check if a bullet needs to be created)
 
-		for (unsigned int j = i + 1; j < entities.size(); j++) {//loop through the rest of the array
+		for (unsigned int j = 0; j < entities.size(); j++) {//loop through the rest of the array
 
 			if ((*entities[i]).hasColidedWith((*entities[j]))) {//check weather a colision has hapened
 
