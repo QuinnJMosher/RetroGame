@@ -5,8 +5,8 @@
 const char* Player::PLAYER_TEXTURE_PATH = "./images/invaders/invaders_4_00.png";
 const float Player::PLAYER_WIDTH = 40.f;
 const float Player::PLAYER_HEIGHT = 40.f;
-const float Player::PLAYER_START_X = GlobalInfo::SCREEN_MAX_X / 2;
-const float Player::PLAYER_START_Y = GlobalInfo::SCREEN_MAX_Y * 0.1;
+const float Player::PLAYER_START_X = GlobalInfo::SCREEN_MAX_X / 2.f;
+const float Player::PLAYER_START_Y = GlobalInfo::SCREEN_MAX_Y * 0.1f;
 const char Player::PLAYER_TYPE_TAG = 'P';
 
 Player::Player() : Entity(PLAYER_START_X, PLAYER_START_Y, PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_TEXTURE_PATH, PLAYER_TYPE_TAG) {
