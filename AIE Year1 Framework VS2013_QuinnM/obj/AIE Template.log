@@ -1,48 +1,16 @@
-﻿Build started 10/27/2014 9:38:35 AM.
+﻿Build started 10/27/2014 12:07:07 PM.
      1>Project "C:\Users\quinn.mosher\Documents\GitHub\RetroGame\AIE Year1 Framework VS2013_QuinnM\AIE Template.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\BigEnemy.cpp source\Bullet.cpp source\Enemy.cpp source\FastEnemy.cpp source\Game.cpp source\Player.cpp source\main.cpp
+         Enemy.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
          main.cpp
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(55): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(63): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(64): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(121): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(124): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(125): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(126): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(155): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(156): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(160): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(161): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(163): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(164): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(180): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(184): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(185): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(199): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(200): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(205): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(206): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(207): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(208): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(211): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(212): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(213): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(214): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(217): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(218): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(219): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(220): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(223): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\quinn.mosher\documents\github\retrogame\aie year1 framework vs2013_quinnm\source\main.cpp(224): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+         Player.cpp
+         Game.cpp
+         FastEnemy.cpp
+         Bullet.cpp
+         BigEnemy.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\AIE Template_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:./libs AIE_1st_Year_Framework_d.lib kernel32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\AIE Template_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\AIE Template_d.lib" /MACHINE:X86 obj\BigEnemy.obj
          obj\Bullet.obj
@@ -89,4 +57,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.30
+Time Elapsed 00:00:01.10

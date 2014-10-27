@@ -30,7 +30,7 @@ const char* fErrortext0 = "Highscore creation error";
 const char* fErrortext1 = "Highscore write error";
 
 //input keys
-const char startGameButton = 257;//enter key
+const short startGameButton = 257;//enter key
 const char exitGameButton = 'E';
 const char goToHighscoresButton = 'H';
 const char goToMainMenuButton = 'M';
