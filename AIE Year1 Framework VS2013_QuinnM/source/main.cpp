@@ -35,11 +35,19 @@ int main( int argc, char* argv[] )
     
     SetBackgroundColour(SColour(0, 0, 0, 255));
 
+	//splashscreen
+	float splashtime = 1;
+	do {
+		ClearScreen();
+		DrawString("Space Shooter", GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.66f);
+		DrawString("Loading...", GlobalInfo::SCREEN_MAX_X * 0.4f, GlobalInfo::SCREEN_MAX_Y * 0.62f);
+		splashtime -= GetDeltaTime();
+	} while (!FrameworkUpdate() && splashtime > 0);
+
 	ReadyHighScores();
 
     //Game Loop
-    do
-	{
+    do {
 		CurrentFunction();
 		ClearScreen();
 
@@ -69,8 +77,7 @@ void ReadyHighScores() {
 
 			highScores[i].Set(tempScore, tempMin, tempSec);
 		}
-	}
-	else {
+	} else {
 		hsFile.open("highScores.txt", ios_base::out);
 		if (hsFile.is_open()) {
 			for (int i = 0; i < 3; i++) {
@@ -79,8 +86,7 @@ void ReadyHighScores() {
 				hsFile << 0 << " ";
 				hsFile << 0 << "\n";
 			}
-		}
-		else {
+		} else {
 			cout << "Highscore creation error";
 		}
 	}
