@@ -30,10 +30,10 @@ const char* fErrortext0 = "Highscore creation error";
 const char* fErrortext1 = "Highscore write error";
 
 //input keys
-short startGame = 0;
-short exitGame = 0;
-short goToHighscores = 0;
-short goToMainMenu = 0;
+const char startGameButton = 257;//enter key
+const char exitGameButton = 'E';
+const char goToHighscoresButton = 'H';
+const char goToMainMenuButton = 'M';
 
 //prototypes
 void ReadyHighScores();
@@ -132,13 +132,13 @@ void MainMenu() {
 	DrawString(menuTextGenral2, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
 	//input
-	if (IsKeyDown(257)) {
+	if (IsKeyDown(startGameButton)) {
 		CurrentFunction = StartGame;
 	}
-	if (IsKeyDown('H')) {
+	if (IsKeyDown(goToHighscoresButton)) {
 		CurrentFunction = HighScores;
 	}
-	if (IsKeyDown('E')) {
+	if (IsKeyDown(exitGameButton)) {
 		CurrentFunction = End;
 	}
 
@@ -190,10 +190,10 @@ void ScoreDisplay() {
 	DrawString(menuTextGenral3, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
 	DrawString(menuTextGenral2, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
-	if (IsKeyDown('M')) {
+	if (IsKeyDown(goToMainMenuButton)) {
 		CurrentFunction = MainMenu;
 	}
-	if (IsKeyDown('E')) {
+	if (IsKeyDown(exitGameButton)) {
 		CurrentFunction = End;
 	}
 }
@@ -229,10 +229,10 @@ void HighScores() {
 	DrawString(menuTextGenral3, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
 	DrawString(menuTextGenral2, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
-	if (IsKeyDown('M')) {
+	if (IsKeyDown(goToMainMenuButton)) {
 		CurrentFunction = MainMenu;
 	}
-	if (IsKeyDown('E')) {
+	if (IsKeyDown(exitGameButton)) {
 		CurrentFunction = End;
 	}
 
