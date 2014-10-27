@@ -8,6 +8,33 @@
 
 using namespace std;
 
+//highscores file
+const char* highScoresfileName = "highScores.txt";
+
+//text vars
+//title 
+const char* gameTitle = "Space Shooter";
+//genral menu text
+const char* menuTextGenral0 = "press \"Enter\" to start game";
+const char* menuTextGenral1 = "press \"h\" to view high scores";
+const char* menuTextGenral2 = "press \"e\" to end";
+const char* menuTextGenral3 = "press \"m\" to return to menu";
+//score menu text
+const char* menuTextScores0 = "Score:";
+const char* menuTextScores1 = "Time:";
+const char* menuTextScores2 = "New High Score!";
+//splash text
+const char* splashText0 = "Loading...";
+//file error messages
+const char* fErrortext0 = "Highscore creation error";
+const char* fErrortext1 = "Highscore write error";
+
+//input keys
+short startGame = 0;
+short exitGame = 0;
+short goToHighscores = 0;
+short goToMainMenu = 0;
+
 //prototypes
 void ReadyHighScores();
 void MainMenu();
@@ -31,7 +58,7 @@ void(*CurrentFunction)() = MainMenu;
 
 int main( int argc, char* argv[] )
 {	
-	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, "Space Shooter");
+	Initialise(GlobalInfo::SCREEN_MAX_X, GlobalInfo::SCREEN_MAX_Y, false, gameTitle);
     
     SetBackgroundColour(SColour(0, 0, 0, 255));
 
@@ -39,8 +66,8 @@ int main( int argc, char* argv[] )
 	float splashtime = 1;
 	do {
 		ClearScreen();
-		DrawString("Space Shooter", GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.66f);
-		DrawString("Loading...", GlobalInfo::SCREEN_MAX_X * 0.4f, GlobalInfo::SCREEN_MAX_Y * 0.62f);
+		DrawString(gameTitle, GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.66f);
+		DrawString(splashText0, GlobalInfo::SCREEN_MAX_X * 0.4f, GlobalInfo::SCREEN_MAX_Y * 0.62f);
 		splashtime -= GetDeltaTime();
 	} while (!FrameworkUpdate() && splashtime > 0);
 
@@ -63,7 +90,7 @@ void ReadyHighScores() {
 		highScores.emplace_back(Score());
 	}
 
-	hsFile.open("highScores.txt", ios_base::in);
+	hsFile.open(highScoresfileName, ios_base::in);
 	if (hsFile.is_open()) {
 		for (int i = 0; i < 3; i++) {
 			int tempScore = 0;
@@ -78,7 +105,7 @@ void ReadyHighScores() {
 			highScores[i].Set(tempScore, tempMin, tempSec);
 		}
 	} else {
-		hsFile.open("highScores.txt", ios_base::out);
+		hsFile.open(highScoresfileName, ios_base::out);
 		if (hsFile.is_open()) {
 			for (int i = 0; i < 3; i++) {
 				highScores[i].Set(0, 0, 0);
@@ -87,7 +114,7 @@ void ReadyHighScores() {
 				hsFile << 0 << "\n";
 			}
 		} else {
-			cout << "Highscore creation error";
+			cerr << fErrortext0;
 		}
 	}
 
@@ -97,12 +124,12 @@ void ReadyHighScores() {
 }
 
 void MainMenu() {
-	DrawString("Space Shooter", GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.66f);
+	DrawString(gameTitle, GlobalInfo::SCREEN_MAX_X * 0.35f, GlobalInfo::SCREEN_MAX_Y * 0.66f);
 
 	//show menu
-	DrawString("press \"Enter\" to start game", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.16f);
-	DrawString("press \"h\" to view high scores", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
-	DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+	DrawString(menuTextGenral0, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.16f);
+	DrawString(menuTextGenral1, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
+	DrawString(menuTextGenral2, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
 	//input
 	if (IsKeyDown(257)) {
@@ -131,8 +158,8 @@ void ScoreDisplay() {
 	char scSt[6] = "";
 
 	//draw heading
-	DrawString("Score:", GlobalInfo::SCREEN_MAX_X * 0.25f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
-	DrawString("Time:", GlobalInfo::SCREEN_MAX_X * 0.60f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
+	DrawString(menuTextScores0, GlobalInfo::SCREEN_MAX_X * 0.25f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
+	DrawString(menuTextScores1, GlobalInfo::SCREEN_MAX_X * 0.60f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
 
 	//draw score/time
 
@@ -156,12 +183,12 @@ void ScoreDisplay() {
 	}
 
 	if (newHighScore) {
-		DrawString("New High Score!", GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
+		DrawString(menuTextScores2, GlobalInfo::SCREEN_MAX_X * 0.30f, GlobalInfo::SCREEN_MAX_Y * 0.80f);
 	}
 
 	//draw advance info
-	DrawString("press \"m\" to return to menu", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
-	DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+	DrawString(menuTextGenral3, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
+	DrawString(menuTextGenral2, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
 	if (IsKeyDown('M')) {
 		CurrentFunction = MainMenu;
@@ -175,8 +202,8 @@ void HighScores() {
 	char scSt[6] = "";
 
 	//display head
-	DrawString("Score:", GlobalInfo::SCREEN_MAX_X * 0.25f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
-	DrawString("Time:", GlobalInfo::SCREEN_MAX_X * 0.60f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
+	DrawString(menuTextScores0, GlobalInfo::SCREEN_MAX_X * 0.25f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
+	DrawString(menuTextScores1, GlobalInfo::SCREEN_MAX_X * 0.60f, GlobalInfo::SCREEN_MAX_Y * 0.90f);
 
 	//display scores
 
@@ -199,8 +226,8 @@ void HighScores() {
 	DrawString(scSt, GlobalInfo::SCREEN_MAX_X * 0.65f, GlobalInfo::SCREEN_MAX_Y * 0.75f);
 
 	//draw advance info
-	DrawString("press \"m\" to return to menu", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
-	DrawString("press \"e\" to end", GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
+	DrawString(menuTextGenral3, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.11f);
+	DrawString(menuTextGenral2, GlobalInfo::SCREEN_MAX_X * 0.02f, GlobalInfo::SCREEN_MAX_Y * 0.06f);
 
 	if (IsKeyDown('M')) {
 		CurrentFunction = MainMenu;
@@ -212,7 +239,7 @@ void HighScores() {
 }
 
 void End() {
-	hsFile.open("highScores.txt", ios_base::out);
+	hsFile.open(highScoresfileName, ios_base::out);
 	if (hsFile.is_open()) {
 		for (int i = 0; i < 3; i++) {
 			hsFile << highScores[i].points << " ";
@@ -221,7 +248,7 @@ void End() {
 		}
 	}
 	else {
-		cout << "Highscore write error";
+		cerr << fErrortext1;
 	}
 
 	hsFile.sync();
