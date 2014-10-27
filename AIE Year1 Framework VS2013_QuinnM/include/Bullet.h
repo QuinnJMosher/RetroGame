@@ -37,6 +37,11 @@ private:
 	static const float BULLET_HEIGHT;
 	static const char BULLET_TYPE_TAG;
 
+	//defaults
+	static const float BULLET_DEFAULT_X_VELOCITY;
+	static const float BULLET_DEFAULT_Y_VELOCITY;
+	static const int BULLET_DEFAULT_DAMAGE;
+
 };
 
 #endif

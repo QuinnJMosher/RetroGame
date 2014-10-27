@@ -8,19 +8,20 @@ const float Enemy::ENEMY_WIDTH = 40;
 const float Enemy::ENEMY_HEIGHT = 40;
 const char Enemy::ENEMY_TYPE_TAG = 'E';
 
-Enemy::Enemy(float in_x, float in_y) : Entity(in_x, in_y, ENEMY_WIDTH, ENEMY_HEIGHT, ENEMY_TEXTURE_PATH, ENEMY_TYPE_TAG) {
-	this->xVelocity = 0;
-	this->yVelocity = 0;
-	this->xSpeed = 0;
-	this->ySpeed = -100;
+const float Enemy::ENEMY_DEFAULT_X_SPEED = 0;
+const float Enemy::ENEMY_DEFAULT_Y_SPEED = -100;
+const int Enemy::ENEMY_DEFAULT_POINT_VALUE = 25;
+const int Enemy::ENEMY_DEFAULT_HIT_POINTS = 10;
 
-	this->hitPoints = 25;
-	this->pointValue = 10;
+Enemy::Enemy(float in_x, float in_y) : Entity(in_x, in_y, ENEMY_WIDTH, ENEMY_HEIGHT, ENEMY_TEXTURE_PATH, ENEMY_TYPE_TAG) {
+	this->xSpeed = ENEMY_DEFAULT_X_SPEED;
+	this->ySpeed = ENEMY_DEFAULT_Y_SPEED;
+
+	this->hitPoints = ENEMY_DEFAULT_POINT_VALUE;
+	this->pointValue = ENEMY_DEFAULT_HIT_POINTS;
 }
 
 Enemy::Enemy(float in_x, float in_y, float in_width, float in_height, const char* in_txPath, float in_xSpeed, float in_ySpeed, int in_hp, int in_ptValue) : Entity(in_x, in_y, in_width, in_height,  in_txPath, ENEMY_TYPE_TAG) {
-	this->xVelocity = 0;
-	this->yVelocity = 0;
 	this->xSpeed = in_xSpeed;
 	this->ySpeed = in_ySpeed;
 
@@ -40,8 +41,8 @@ void Enemy::Draw() {//override
 }
 
 void Enemy::Move(float in_deltaTime){
-	position.x += xVelocity + (xSpeed * in_deltaTime);
-	position.y += yVelocity + (ySpeed * in_deltaTime);
+	position.x += (xSpeed * in_deltaTime);
+	position.y += (ySpeed * in_deltaTime);
 
 	MoveSprite(spriteID, position.x, position.y);
 }

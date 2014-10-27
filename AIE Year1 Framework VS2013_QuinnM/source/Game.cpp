@@ -124,7 +124,7 @@ Score Game::Start() {
 
 	do {
 		//quick exit
-		if (IsKeyDown(256)) {
+		if (IsKeyDown(256)) {// escape key
 			gamePlaying = false;
 		}
 

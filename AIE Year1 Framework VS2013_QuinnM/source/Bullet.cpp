@@ -7,6 +7,10 @@ const float Bullet::BULLET_WIDTH = 20;
 const float Bullet:: BULLET_HEIGHT = 20;
 const char Bullet::BULLET_TYPE_TAG = 'B';
 
+const float Bullet::BULLET_DEFAULT_X_VELOCITY = 0;
+const float Bullet::BULLET_DEFAULT_Y_VELOCITY = 200;
+const int Bullet::BULLET_DEFAULT_DAMAGE = 5;
+
 Bullet::Bullet(float in_x, float in_y, float in_velocityX, float in_velocityY, int in_damage, int in_owner) : Entity(in_x, in_y, BULLET_WIDTH, BULLET_HEIGHT, BULLET_TEXTURE_PATH, BULLET_TYPE_TAG, in_owner) {
 	this->xVelocity = in_velocityX;
 	this->yVelocity = in_velocityY;
@@ -15,16 +19,16 @@ Bullet::Bullet(float in_x, float in_y, float in_velocityX, float in_velocityY, i
 }
 
 Bullet::Bullet(float in_x, float in_y, int in_owner) : Entity(in_x, in_y, BULLET_WIDTH, BULLET_HEIGHT, BULLET_TEXTURE_PATH, BULLET_TYPE_TAG, in_owner) {
-	this->xVelocity = 0;
-	this->yVelocity = 200;
-	this->damageValue = 5;
+	this->xVelocity = BULLET_DEFAULT_X_VELOCITY;
+	this->yVelocity = BULLET_DEFAULT_Y_VELOCITY;
+	this->damageValue = BULLET_DEFAULT_DAMAGE;
 	this->hasHit = false;
 }
 
 Bullet::Bullet(float in_x, float in_y) : Entity(in_x, in_y, BULLET_WIDTH, BULLET_HEIGHT, BULLET_TEXTURE_PATH, BULLET_TYPE_TAG) {
-	this->xVelocity = 0;
-	this->yVelocity = 200;
-	this->damageValue = 5;
+	this->xVelocity = BULLET_DEFAULT_X_VELOCITY;
+	this->yVelocity = BULLET_DEFAULT_Y_VELOCITY;
+	this->damageValue = BULLET_DEFAULT_DAMAGE;
 	this->hasHit = false;
 }
 

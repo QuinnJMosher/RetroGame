@@ -24,9 +24,6 @@ protected:
 
 private:
 
-	//forced movement vars
-	float xVelocity;
-	float yVelocity;
 	//actual speed
 	float xSpeed;
 	float ySpeed;
@@ -40,6 +37,11 @@ private:
 	static const float ENEMY_WIDTH;
 	static const float ENEMY_HEIGHT;
 	static const char ENEMY_TYPE_TAG;
+
+	static const float ENEMY_DEFAULT_X_SPEED;
+	static const float ENEMY_DEFAULT_Y_SPEED;
+	static const int ENEMY_DEFAULT_POINT_VALUE;
+	static const int ENEMY_DEFAULT_HIT_POINTS;
 };
 
 #endif
